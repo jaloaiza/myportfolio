@@ -9,12 +9,16 @@
     "platforms": [],
     "link": "#",
     "details": {
-      "role": "Frontend Developer",
-      "tags": ["Web Development", "UI Design"],
+      "role": "Production & QA Student Mentor",
+      "tags": ["Production Planning", "Scope Management", "QA Workflows", "Cross-disciplinary Mentorship"],
       "blocks": [
         {
           "type": "text",
-          "body": "As Frontend Developer, I designed and built the full site from scratch, including scroll-driven animations, a matrix background effect, and a data-driven component architecture."
+          "body": "As a **Production & QA Student Mentor**, I supported over **180 interdisciplinary students** across 12 game teams by providing structured guidance on production workflows, QA practices, and delivery readiness."
+        },
+        {
+          "type": "text",
+          "body": "In addition to one-on-one mentorship, I led multiple breakout sessions and presentations to establish shared production standards, encourage open discussion, and improve technical awareness across teams."
         },
         {
           "type": "media",
@@ -24,16 +28,78 @@
         },
         {
           "type": "heading",
-          "text": "Animation System"
+          "text": "Quality Assurance Presentation"
         },
         {
           "type": "text",
-          "body": "Each section uses an IntersectionObserver to trigger staggered reveal animations as the user scrolls.\n\nThe navigation bar morphs its width and border-radius based on scroll progress using a requestAnimationFrame loop."
+          "body": "This presentation introduces students to the role of a QA Advocate and the importance of structured quality assurance within a game development pipeline. It covers core QA workflows such as build checklists, milestone checklists, bug reporting, and test management, emphasizing QA as a collaborative, cross-disciplinary responsibility rather than an isolated role."
+        },
+        {
+          "type": "text",
+          "body": "The talk also explores how QA data directly supports production decision making, including build readiness, task prioritization, and risk assessment. Through concrete examples, templates, and workflows, students learn how clear reporting, consistent testing practices, and open communication contribute to healthier development cycles and higher-quality builds. The presentation was delivered as part of a breakout session to establish shared QA standards across multiple interdisciplinary teams."
         },
         {
           "type": "media",
-          "src": "astro-02.jpeg",
-          "caption": "Mobile layout"
+          "type_override": "iframe",
+          "src": "https://1drv.ms/p/c/12f1c57aa57309f0/IQS0ZmUhpsC7QZ80bJaQ56XEAVhzz9T0Vh1lu2h6vY053F0",
+          "caption:": "Optimization Breakout to 15+ Students in Unreal Engine!"
+        },
+        {
+          "type": "heading",
+          "text": "Optimization Presentation"
+        },
+        {
+          "type": "text",
+          "body": "This talk was designed to help student teams identify, diagnose, and prioritize performance issues using Unreal Engine’s built in optimization tools."
+        },
+        {
+          "type": "text",
+          "body": "The presentation covers rasterization cost, screen space impact, LODs and impostors, lighting and shadow complexity, shader complexity and quad overdraw, material instruction counts, and draw call management. Emphasis is placed on production realistic optimization workflows. Teaching teams how to focus on high impact fixes rather than low return micro-optimizations."
+        },
+        {
+          "type": "text",
+          "body": "The content reflects real production challenges commonly encountered in student and small team projects, bridging the gap between visual quality, performance constraints, and practical development timelines."
+        },
+        {
+          "type": "heading",
+          "text": "Responsibilities"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mentored Producers, QA advocates, and team leads across **12 teams** on production planning, scope management, and delivery readiness",
+            "Led multiple breakout sessions focused on **QA fundamentals**, including build and milestone checklists, bug reporting workflows, and test management practices",
+            "Designed and presented a **semester wide retrospective** with all team producers and quality advocates, fostering open discussion in a professor-free environment to promote candid feedback and reflection",
+            "Provided structured guidance on **QA workflows**, helping teams adopt consistent testing and reporting standards",
+            "Delivered a technical presentation on **Unreal Engine optimization**, covering profiling tools and in-engine art optimization best practices",
+            "Reviewed builds, documentation, and team processes to assess project health and identify risks early"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "What I Brought"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A structured, producer driven approach to production and QA education at scale",
+            "Clear, actionable frameworks for QA workflows and production checklists",
+            "The ability to translate complex technical and process concepts into accessible presentations",
+            "An emphasis on open communication, trust, and psychological safety within team discussions"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "What I Learned"
+        },
+        {
+          "type": "list",
+          "items": [
+            "How to scale mentorship through group sessions without sacrificing individual team needs",
+            "How shared QA standards significantly improve build stability and team confidence",
+            "How safe, open retrospectives can surface critical production insights often missed in formal reviews",
+            "How technical education, such as engine optimization knowledge, empowers better cross-disciplinary decision-making"
+          ]
         }
       ]
     }

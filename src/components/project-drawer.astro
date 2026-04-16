@@ -3,7 +3,7 @@
 ---
 
 <!-- Backdrop (click closes modal) -->
-<div id="drawer-backdrop"></div>
+<div id="drawer-backdrop" data-base={import.meta.env.BASE_URL}></div>
 
 <!-- Centering wrapper (pointer-events:none so clicks fall through to backdrop) -->
 <div id="modal-wrapper" role="dialog" aria-modal="true" aria-labelledby="modal-title">
@@ -198,6 +198,29 @@
     border-top: 1px solid rgba(255, 255, 255, 0.05);
   }
 
+  /* List block */
+  .block-list {
+    margin: 0;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    list-style-type: circle;
+  }
+  .block-list::marker,
+  .block-list li::marker {
+    color: var(--color-accent, #a476ff);
+  }
+  .block-list li {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.7;
+  }
+  .block-list li strong {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+  }
+
   /* Media block */
   .block-media {
     width: 100%;
@@ -301,6 +324,8 @@
 
     if (!backdrop || !wrapper || !contentEl) return;
 
+    const BASE_URL: string = (backdrop as HTMLElement).dataset.base || '/';
+
     // ── Helpers ───────────────────────────────────────────
 
     function esc(str: string): string {
@@ -309,6 +334,10 @@
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
+    }
+
+    function localSrc(src: string): string {
+      return src.startsWith('http') ? src : BASE_URL + src;
     }
 
     function getMediaType(src: string): string {
@@ -333,7 +362,12 @@
     }
 
     function bodyToHtml(text: string): string {
-      return text.split('\n\n').map(p => `<p>${esc(p.trim())}</p>`).join('');
+      return text.split('\n\n').map(p => {
+        const html = esc(p.trim())
+          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\*(.+?)\*/g, '<em>$1</em>');
+        return `<p>${html}</p>`;
+      }).join('');
     }
 
     // ── Block renderers ───────────────────────────────────
@@ -347,6 +381,11 @@
         case 'heading':
           return `<h3 class="block-heading">${esc(block.text || '')}</h3>`;
 
+        case 'list': {
+          const toInline = (s: string) => esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>');
+          return `<ul class="block-list">${(block.items || []).map((item: string) => `<li>${toInline(item)}</li>`).join('')}</ul>`;
+        }
+
         case 'media': {
           const src     = block.src || '';
           const type    = block.type_override || getMediaType(src);
@@ -356,13 +395,13 @@
           if (type === 'youtube') {
             inner = `<div class="block-media-inner"><iframe src="${esc(toEmbedUrl(src))}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
           } else if (type === 'video') {
-            inner = `<div class="block-media-inner"><video src="${esc(src)}" controls playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;"></video></div>`;
+            inner = `<div class="block-media-inner"><video src="${esc(localSrc(src))}" controls playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;"></video></div>`;
           } else if (type === 'pdf') {
-            inner = `<div class="block-media-inner block-media-pdf"><iframe src="${esc(src)}" type="application/pdf"></iframe></div>`;
+            inner = `<div class="block-media-inner block-media-pdf"><iframe src="${esc(localSrc(src))}" type="application/pdf"></iframe></div>`;
           } else if (type === 'iframe') {
             inner = `<div class="block-media-inner block-media-slides"><iframe src="${esc(src)}" allowfullscreen></iframe></div>`;
           } else {
-            inner = `<div class="block-media-inner"><img src="${esc(src)}" alt="${esc(caption)}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;" /></div>`;
+            inner = `<div class="block-media-inner"><img src="${esc(localSrc(src))}" alt="${esc(caption)}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;" /></div>`;
           }
 
           const cap = caption ? `<div class="block-media-caption">${esc(caption)}</div>` : '';

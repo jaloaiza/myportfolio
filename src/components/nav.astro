@@ -7,17 +7,19 @@ interface NavItem {
   icon: string;
 }
 
+const base = import.meta.env.BASE_URL;
+
 const navItems: NavItem[] = [
-  { label: "Home",     href: "/",         icon: "mdi:home"      },
-  { label: "Career",   href: "/resume",   icon: "mdi:work"      },
-  { label: "Projects", href: "/projects", icon: "mdi:computer"  },
-  { label: "Contact",  href: "/contact",  icon: "mdi:message"   },
+  { label: "Home",     href: base,                   icon: "mdi:home"      },
+  { label: "Career",   href: `${base}resume`,         icon: "mdi:work"      },
+  { label: "Projects", href: `${base}projects`,       icon: "mdi:computer"  },
+  { label: "Contact",  href: `${base}contact`,        icon: "mdi:message"   },
 ];
 
 const currentPath = Astro.url.pathname;
 
 function isActive(href: string): boolean {
-  if (href === "/") return currentPath === "/";
+  if (href === base) return currentPath === base || currentPath === base.replace(/\/$/, '');
   return currentPath.startsWith(href);
 }
 ---
