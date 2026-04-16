@@ -2,10 +2,10 @@
   {
     "title": "How I Mentored 180+ Students!",
     "category": "Experience",
-    "date": "August 2025 - Present",
+    "date": "September 2025 - Present",
     "description": "Led Production and QA student mentorship for 180+ students across 12 teams through structured worfklows, open retrospectives, and technical education.",
-    "images": ["astro-01.webp", "astro-02.jpeg"],
-    "tech": ["Astro", "Tailwind CSS"],
+    "images": ["MentorWork/QAPresentation.png", "MentorWork/OptimizationPresentation.png"],
+    "tech": ["Perforce", "Unreal Engine", "Excel", "PowerPoint"],
     "platforms": [],
     "link": "#",
     "details": {
@@ -18,8 +18,9 @@
         },
         {
           "type": "media",
-          "src": "astro-01.webp",
-          "caption": "Homepage design"
+          "type_override": "iframe",
+          "src": "https://1drv.ms/p/c/12f1c57aa57309f0/IQSCEXjKfc_0Q6xcq0elBESiAelOOsekzP9Pi2tpHnL_SBA",
+          "caption": "Quality Assurance Breakout with 15+ Students"
         },
         {
           "type": "heading",

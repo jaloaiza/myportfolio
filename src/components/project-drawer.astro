@@ -223,6 +223,13 @@
     height: 100%;
     border: none;
   }
+  .block-media-inner.block-media-pdf {
+    aspect-ratio: unset;
+    height: 520px;
+  }
+  .block-media-inner.block-media-slides {
+    aspect-ratio: 16 / 9;
+  }
   .block-media-caption {
     padding: 0.5rem 0.75rem;
     font-size: 0.72rem;
@@ -308,6 +315,7 @@
       if (!src) return 'image';
       if (src.includes('youtube.com') || src.includes('youtu.be')) return 'youtube';
       if (/\.(mp4|webm|ogg)(\?|$)/i.test(src)) return 'video';
+      if (/\.pdf(\?|$)/i.test(src)) return 'pdf';
       return 'image';
     }
 
@@ -349,6 +357,10 @@
             inner = `<div class="block-media-inner"><iframe src="${esc(toEmbedUrl(src))}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
           } else if (type === 'video') {
             inner = `<div class="block-media-inner"><video src="${esc(src)}" controls playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;"></video></div>`;
+          } else if (type === 'pdf') {
+            inner = `<div class="block-media-inner block-media-pdf"><iframe src="${esc(src)}" type="application/pdf"></iframe></div>`;
+          } else if (type === 'iframe') {
+            inner = `<div class="block-media-inner block-media-slides"><iframe src="${esc(src)}" allowfullscreen></iframe></div>`;
           } else {
             inner = `<div class="block-media-inner"><img src="${esc(src)}" alt="${esc(caption)}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;" /></div>`;
           }
