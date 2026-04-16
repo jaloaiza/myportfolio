@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+
 interface NavItem {
   label: string;
   href: string;
@@ -7,37 +8,18 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  {
-    label: "Home",
-    href: "#home",
-    icon: `mdi:home`,
-  },
-  {
-    label: "Career",
-    href: "#career",
-    icon: `mdi:work`,
-  },
-  {
-    label: "Projects",
-    href: "#projects",
-    icon: `mdi:computer`,
-  },
-  {
-    label: "Tech",
-    href: "#tech",
-    icon: `mdi:code-tags`,
-  },
-  // {
-  //   label: "Education",
-  //   href: "#contact",
-  //   icon: `mdi:message`,
-  // },
-  {
-    label: "Contact",
-    href: "#contact",
-    icon: `mdi:message`,
-  }
+  { label: "Home",     href: "/",         icon: "mdi:home"      },
+  { label: "Career",   href: "/resume",   icon: "mdi:work"      },
+  { label: "Projects", href: "/projects", icon: "mdi:computer"  },
+  { label: "Contact",  href: "/contact",  icon: "mdi:message"   },
 ];
+
+const currentPath = Astro.url.pathname;
+
+function isActive(href: string): boolean {
+  if (href === "/") return currentPath === "/";
+  return currentPath.startsWith(href);
+}
 ---
 
 <div class="flex justify-center w-full">
@@ -54,7 +36,7 @@ const navItems: NavItem[] = [
             <li class="flex-1 md:flex-none">
               <a
                 href={item.href}
-                class="flex flex-col items-center gap-1 text-gray-400 transition-colors text-xs md:text-base relative group"
+                class:list={["flex flex-col items-center gap-1 text-gray-400 transition-colors text-xs md:text-base relative group", { active: isActive(item.href) }]}
               >
                 <div class="absolute -left-6 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-all duration-300 scale-0 opacity-0 nav-indicator hidden md:block" />
                 <span class="md:hidden flex items-center justify-center w-6 h-6">
@@ -254,46 +236,6 @@ const navItems: NavItem[] = [
     { passive: true }
   );
 
-  //smooth scrolling to a linked section
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      const target = e.currentTarget as HTMLAnchorElement;
-      const targetId = target.getAttribute("href")?.substring(1) || "";
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: "smooth",
-        });
-      }
-    });
-  });
-
-  //highlight section by observing visible one on the screen by 50%
-  document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll("nav a[href^='#']");
-    const observerOptions = { threshold: 0.5 };
-
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navLinks.forEach((link) => link.classList.remove("active"));
-          const id = entry.target.getAttribute("id");
-          const activeLink = document.querySelector(`nav a[href="#${id}"]`);
-          if (activeLink) {
-            activeLink.classList.add("active");
-          }
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(
-      observerCallback,
-      observerOptions
-    );
-    sections.forEach((section) => observer.observe(section));
-  });
 </script>
 
 <style>

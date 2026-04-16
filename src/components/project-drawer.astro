@@ -1,0 +1,456 @@
+---
+// No props — fully populated by JS when a project card is clicked
+---
+
+<!-- Backdrop (click closes modal) -->
+<div id="drawer-backdrop"></div>
+
+<!-- Centering wrapper (pointer-events:none so clicks fall through to backdrop) -->
+<div id="modal-wrapper" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div id="project-modal">
+
+    <!-- Sticky header: title · tags · close -->
+    <header id="modal-header">
+      <div id="modal-header-left">
+        <h2 id="modal-title"></h2>
+        <div id="modal-tags"></div>
+        <p id="modal-sub"></p>
+      </div>
+      <button id="drawer-close" aria-label="Close">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="1" y1="1" x2="11" y2="11"/>
+          <line x1="11" y1="1" x2="1" y2="11"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Scrollable case-study content -->
+    <div id="drawer-scroll">
+      <div id="drawer-content"></div>
+    </div>
+
+  </div>
+</div>
+
+<style is:global>
+  /* ── Backdrop ─────────────────────────────────────────── */
+  #drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 40;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  #drawer-backdrop.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* ── Centering wrapper ────────────────────────────────── */
+  #modal-wrapper {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    pointer-events: none; /* clicks fall through to backdrop */
+    opacity: 0;
+    transform: scale(0.97) translateY(10px);
+    transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  #modal-wrapper.open {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  #modal-wrapper.open #project-modal {
+    pointer-events: all;
+  }
+
+  /* ── Modal panel ──────────────────────────────────────── */
+  #project-modal {
+    pointer-events: none;
+    width: 100%;
+    max-width: 780px;
+    max-height: 88vh;
+    background: #09071a;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255,255,255,0.04);
+  }
+
+  /* ── Header ───────────────────────────────────────────── */
+  #modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem 1.5rem 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    flex-shrink: 0;
+    background: #09071a;
+  }
+
+  #modal-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    min-width: 0;
+  }
+
+  #modal-title {
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    font-family: var(--font-heading, inherit);
+    margin: 0;
+  }
+
+  #modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .modal-tag {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    border: 1px solid;
+  }
+
+  #modal-sub {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.35);
+    margin: 0;
+    font-family: var(--font-mono, monospace);
+  }
+
+  /* Close button */
+  #drawer-close {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.45);
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+    margin-top: 0.15rem;
+  }
+  #drawer-close:hover {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* ── Scroll container ─────────────────────────────────── */
+  #drawer-scroll {
+    flex: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.08) transparent;
+  }
+
+  /* ── Content blocks ───────────────────────────────────── */
+  #drawer-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  /* Text block */
+  .block-text p {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.8;
+    margin: 0 0 0.75rem;
+  }
+  .block-text p:last-child { margin-bottom: 0; }
+
+  /* Section heading block */
+  .block-heading {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    font-family: var(--font-heading, inherit);
+    margin: 0.5rem 0 0;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  /* Media block */
+  .block-media {
+    width: 100%;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    background: #000;
+  }
+  .block-media-inner {
+    position: relative;
+    aspect-ratio: 16 / 9;
+  }
+  .block-media img,
+  .block-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .block-media iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .block-media-caption {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.03);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  /* Tech tags row */
+  .block-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding-top: 0.25rem;
+  }
+  .block-tech-tag {
+    padding: 0.25rem 0.6rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.375rem;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  /* Link block */
+  .block-link {
+    padding-top: 0.5rem;
+  }
+  .block-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.55rem 1.1rem;
+    background: rgba(164, 118, 255, 0.08);
+    border: 1px solid rgba(164, 118, 255, 0.22);
+    color: var(--color-accent, #a476ff);
+    border-radius: 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .block-link a:hover {
+    background: rgba(164, 118, 255, 0.16);
+    border-color: rgba(164, 118, 255, 0.4);
+  }
+</style>
+
+<script>
+  // Tag color palette — cycles through for each tag
+  const TAG_PALETTE = [
+    { bg: 'rgba(74,222,128,0.12)',  border: 'rgba(74,222,128,0.3)',  color: '#86efac' },
+    { bg: 'rgba(96,165,250,0.12)',  border: 'rgba(96,165,250,0.3)',  color: '#93c5fd' },
+    { bg: 'rgba(251,146,60,0.12)',  border: 'rgba(251,146,60,0.3)',  color: '#fdba74' },
+    { bg: 'rgba(244,114,182,0.12)', border: 'rgba(244,114,182,0.3)', color: '#f9a8d4' },
+    { bg: 'rgba(167,139,250,0.12)', border: 'rgba(167,139,250,0.3)', color: '#c4b5fd' },
+    { bg: 'rgba(52,211,153,0.12)',  border: 'rgba(52,211,153,0.3)',  color: '#6ee7b7' },
+  ];
+
+  function initModal() {
+    const backdrop  = document.getElementById('drawer-backdrop');
+    const wrapper   = document.getElementById('modal-wrapper');
+    const titleEl   = document.getElementById('modal-title');
+    const tagsEl    = document.getElementById('modal-tags');
+    const subEl     = document.getElementById('modal-sub');
+    const contentEl = document.getElementById('drawer-content');
+    const closeBtn  = document.getElementById('drawer-close');
+    const scrollEl  = document.getElementById('drawer-scroll');
+
+    if (!backdrop || !wrapper || !contentEl) return;
+
+    // ── Helpers ───────────────────────────────────────────
+
+    function esc(str: string): string {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function getMediaType(src: string): string {
+      if (!src) return 'image';
+      if (src.includes('youtube.com') || src.includes('youtu.be')) return 'youtube';
+      if (/\.(mp4|webm|ogg)(\?|$)/i.test(src)) return 'video';
+      return 'image';
+    }
+
+    function toEmbedUrl(src: string): string {
+      if (src.includes('/embed/')) return src;
+      if (src.includes('youtu.be/')) {
+        const id = src.split('youtu.be/')[1].split(/[?&]/)[0];
+        return `https://www.youtube.com/embed/${id}`;
+      }
+      if (src.includes('watch?v=')) {
+        const id = src.split('watch?v=')[1].split('&')[0];
+        return `https://www.youtube.com/embed/${id}`;
+      }
+      return src;
+    }
+
+    function bodyToHtml(text: string): string {
+      return text.split('\n\n').map(p => `<p>${esc(p.trim())}</p>`).join('');
+    }
+
+    // ── Block renderers ───────────────────────────────────
+
+    function renderBlock(block: any): string {
+      switch (block.type) {
+
+        case 'text':
+          return `<div class="block-text">${bodyToHtml(block.body || '')}</div>`;
+
+        case 'heading':
+          return `<h3 class="block-heading">${esc(block.text || '')}</h3>`;
+
+        case 'media': {
+          const src     = block.src || '';
+          const type    = block.type_override || getMediaType(src);
+          const caption = block.caption || '';
+          let inner = '';
+
+          if (type === 'youtube') {
+            inner = `<div class="block-media-inner"><iframe src="${esc(toEmbedUrl(src))}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
+          } else if (type === 'video') {
+            inner = `<div class="block-media-inner"><video src="${esc(src)}" controls playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;"></video></div>`;
+          } else {
+            inner = `<div class="block-media-inner"><img src="${esc(src)}" alt="${esc(caption)}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;" /></div>`;
+          }
+
+          const cap = caption ? `<div class="block-media-caption">${esc(caption)}</div>` : '';
+          return `<div class="block-media">${inner}${cap}</div>`;
+        }
+
+        default:
+          return '';
+      }
+    }
+
+    // ── Populate modal ────────────────────────────────────
+
+    function populateModal(project: any) {
+      const details = project.details || {};
+      const tags: string[]  = details.tags || [];
+      const blocks: any[]   = details.blocks || [];
+      const role: string    = details.role || '';
+
+      // Title
+      if (titleEl) titleEl.textContent = project.title || '';
+
+      // Colored tag pills
+      if (tagsEl) {
+        tagsEl.innerHTML = tags.map((tag, i) => {
+          const c = TAG_PALETTE[i % TAG_PALETTE.length];
+          return `<span class="modal-tag" style="background:${c.bg};border-color:${c.border};color:${c.color};">${esc(tag)}</span>`;
+        }).join('');
+      }
+
+      // Sub-line: date · role
+      if (subEl) {
+        const parts = [project.date, role].filter(Boolean);
+        subEl.textContent = parts.length ? `/ ${parts.join(' · ')}` : '';
+      }
+
+      // Content blocks
+      let html = '';
+      blocks.forEach(block => { html += renderBlock(block); });
+
+      // Tech tags row
+      const tech: string[] = project.tech || [];
+      if (tech.length) {
+        html += `<div class="block-tags">${tech.map((t: string) => `<span class="block-tech-tag">${esc(t)}</span>`).join('')}</div>`;
+      }
+
+      // Link
+      if (project.link && project.link !== '#') {
+        html += `
+          <div class="block-link">
+            <a href="${esc(project.link)}" target="_blank" rel="noopener noreferrer">
+              Visit Project
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+            </a>
+          </div>`;
+      }
+
+      if (contentEl) contentEl.innerHTML = html;
+    }
+
+    // ── Open / Close ──────────────────────────────────────
+
+    function openModal(rawData: string) {
+      let project: any;
+      try { project = JSON.parse(rawData); } catch { return; }
+
+      if (scrollEl) scrollEl.scrollTop = 0;
+      populateModal(project);
+
+      backdrop.classList.add('open');
+      wrapper.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      backdrop.classList.remove('open');
+      wrapper.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // ── Event listeners ───────────────────────────────────
+
+    document.querySelectorAll<HTMLElement>('.project-card').forEach(card => {
+      card.addEventListener('click', e => {
+        if ((e.target as Element).closest('[data-external-link]')) return;
+        const data = card.dataset.project;
+        if (data) openModal(data);
+      });
+    });
+
+    closeBtn?.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && wrapper.classList.contains('open')) closeModal();
+    });
+  }
+
+  initModal();
+  document.addEventListener('astro:after-swap', initModal);
+</script>

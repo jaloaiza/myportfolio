@@ -1,20 +1,73 @@
 [
   {
-    "title": "Awesome Website",
-    "description": "A high-performance, SEO-optimized web application built with modern frameworks to showcase technical expertise.",
+    "title": "How I Mentored 180+ Students!",
+    "category": "Experience",
+    "date": "August 2025 - Present",
+    "description": "Led Production and QA student mentorship for 180+ students across 12 teams through structured worfklows, open retrospectives, and technical education.",
     "images": ["astro-01.webp", "astro-02.jpeg"],
-    "tech": ["Astro", "Tailwind"],
-    "platforms": ["web"],
+    "tech": ["Astro", "Tailwind CSS"],
+    "platforms": [],
     "link": "#",
-    "category": "Published Website"
+    "details": {
+      "role": "Frontend Developer",
+      "tags": ["Web Development", "UI Design"],
+      "blocks": [
+        {
+          "type": "text",
+          "body": "As Frontend Developer, I designed and built the full site from scratch, including scroll-driven animations, a matrix background effect, and a data-driven component architecture."
+        },
+        {
+          "type": "media",
+          "src": "astro-01.webp",
+          "caption": "Homepage design"
+        },
+        {
+          "type": "heading",
+          "text": "Animation System"
+        },
+        {
+          "type": "text",
+          "body": "Each section uses an IntersectionObserver to trigger staggered reveal animations as the user scrolls.\n\nThe navigation bar morphs its width and border-radius based on scroll progress using a requestAnimationFrame loop."
+        },
+        {
+          "type": "media",
+          "src": "astro-02.jpeg",
+          "caption": "Mobile layout"
+        }
+      ]
+    }
   },
   {
     "title": "Demo Mobile App",
+    "category": "Hobby Project",
+    "date": "March 2024",
     "description": "A high-performance mobile application built with modern frameworks to showcase technical expertise.",
-    "images": ["astro-02.jpeg", "#"],
+    "images": ["astro-02.jpeg"],
     "tech": ["Flutter", "Dart", "REST API"],
     "platforms": ["apple-ios", "android"],
     "link": "#",
-    "category": "Hobby"
+    "details": {
+      "role": "Mobile Developer",
+      "tags": ["Mobile", "Cross-Platform"],
+      "blocks": [
+        {
+          "type": "text",
+          "body": "A cross-platform mobile app built with Flutter targeting iOS and Android, with a focus on performance and clean UI."
+        },
+        {
+          "type": "media",
+          "src": "astro-02.jpeg",
+          "caption": "App screenshot"
+        },
+        {
+          "type": "heading",
+          "text": "State Management"
+        },
+        {
+          "type": "text",
+          "body": "Implemented REST API integration and a lightweight state management solution.\n\nAll layouts were built responsively to handle a wide range of device sizes."
+        }
+      ]
+    }
   }
 ]

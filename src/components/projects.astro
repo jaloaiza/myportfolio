@@ -1,5 +1,6 @@
 ---
 import ProjectCard from './project-card.astro';
+import ProjectDrawer from './project-drawer.astro';
 import projectsData from '../data/projects.json';
 ---
 
@@ -10,7 +11,7 @@ import projectsData from '../data/projects.json';
           <span class="text-accent">/</span> Featured Projects
         </h2>
       <p class="text-gray font-body text-sm max-w-md">
-        A selection of professional work, published apps, and experimental prototypes.
+        These are my featured projects for Production, UI Programming, Gameplay and more! To view all projects, visit the Projects page.
       </p>
     </div>
 
@@ -21,6 +22,8 @@ import projectsData from '../data/projects.json';
     </div>
   </div>
 </section>
+
+<ProjectDrawer />
 
 <script>
   const initProjectReveal = () => {
