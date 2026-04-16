@@ -327,7 +327,7 @@
 
     if (!backdrop || !wrapper || !contentEl) return;
 
-    const BASE_URL: string = (backdrop as HTMLElement).dataset.base || '/';
+    const BASE_URL: string = ((backdrop as HTMLElement).dataset.base || '/').replace(/\/$/, '');
 
     // ── Helpers ───────────────────────────────────────────
 
@@ -340,7 +340,7 @@
     }
 
     function localSrc(src: string): string {
-      return src.startsWith('http') ? src : BASE_URL + src;
+      return src.startsWith('http') ? src : `${BASE_URL}/${src}`;
     }
 
     function getMediaType(src: string): string {
