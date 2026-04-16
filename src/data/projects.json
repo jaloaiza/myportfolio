@@ -105,34 +105,81 @@
     }
   },
   {
-    "title": "Demo Mobile App",
-    "category": "Hobby Project",
-    "date": "March 2024",
-    "description": "A high-performance mobile application built with modern frameworks to showcase technical expertise.",
-    "images": ["astro-02.jpeg"],
-    "tech": ["Flutter", "Dart", "REST API"],
-    "platforms": ["apple-ios", "android"],
-    "link": "#",
+    "title": "Producing from Concept to Publication",
+    "category": "Project Experience",
+    "date": "Sept 2024 - Aug 2025",
+    "description": "Learn about how I was the Producer on a 10-person interdisciplinary team for a published work all the way from concept.",
+    "images": ["ProdGF/Dashboard.png"],
+    "tech": ["Perforce", "Unity", "C#", "Excel", "MS Word"],
+    "platforms": ["steam"],
+    "links": [
+      {"label": "Steam", "url": "https://store.steampowered.com/app/4459000/Gamblers_Fallacy/"}
+    ],
     "details": {
-      "role": "Mobile Developer",
-      "tags": ["Mobile", "Cross-Platform"],
+      "role": "Producer",
+      "tags": ["Production", "Interdisciplinary Collaboration", "Sprint Planning", "Task Prioritization", "Bug Triage"],
       "blocks": [
         {
           "type": "text",
-          "body": "A cross-platform mobile app built with Flutter targeting iOS and Android, with a focus on performance and clean UI."
+          "body": "As **Producer**, I was responsible for guiding Gambler's Fallacy from **early concept** through **playable milestones**. I oversaw team coordination, **scope management**, and **production planning** while supporting **rapid iteration** across design, art and engineering. My focus was **maintaining momentum** and clarity while enabling the team to **execute creatively** and **efficiently**."
         },
         {
           "type": "media",
-          "src": "astro-02.jpeg",
-          "caption": "App screenshot"
+          "src": "ProdGF/Dashboard.png",
+          "caption": "A screenshot of our Excel task management tool."
         },
         {
           "type": "heading",
-          "text": "State Management"
+          "text": "Producer Responsibilities"
         },
         {
-          "type": "text",
-          "body": "Implemented REST API integration and a lightweight state management solution.\n\nAll layouts were built responsively to handle a wide range of device sizes."
+          "type": "list",
+          "items": [
+            "Defined **production milestones** and **sprint goals** to **guide development** from prototype to polished build",
+            "Coordinated **cross-disciplinary** communication between design, art and programming",
+            "Managed **scope and feature prioritization** to ensure the project remained **achievable** within time constraints",
+            "Facilitated **playtesting** and **feedback sessions** to inform iteration and **production decisions**"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Producer Challenges - Team Composition & Role Balance"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Navigated an imbalanced team structure with eight programmers supporting a single designer and artist",
+            "Coordinated responsibilities as some programmers naturally took on design focused tasks to maintain development velocity",
+            "Worked to preserve a clear creative vision while allowing flexible role ownership during iteration",
+            "Adjusted planning and communication to prevent overlap, misalignment, or decision bottlenecks"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "What I Brought as Producer"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Continuity and team stability from **producing multiple projects** with largely the **same team**",
+            "An established **production rhythm** that allowed the team to move **quickly during early development**",
+            "A **technical background** that helped **bridge communication** between **design** intent and **engineering** constraints",
+            "An **adaptive leadership** approach that supported **flexible role ownership** while maintaning overall direction"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "What I Learned Through This Project"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Gained a **deeper understanding** of **designer needs** and workflows through my first close collaboration with a dedicated game designer",
+            "Learned how to **support and protect design intent** while coordinating implementation across a large programming team",
+            "Expanded my **understanding** of **product management** by working closely with a programmer focused on tooling and planning",
+            "Developed an appreciation for how **production tools** and **visibility systems** can directly **improve team efficiency** and decision making",
+            "Refined my ability to produce for the same team across multiple projects, applying lessons learned from earlier productions"
+          ]
         }
       ]
     }

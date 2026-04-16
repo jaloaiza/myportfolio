@@ -27,6 +27,14 @@ const isSlider = project.images.length > 1;
         </div>
       ))}
     </div>
+
+    <div class="absolute top-3 left-3 flex gap-2 z-20">
+      {(project.links ?? (project.link && project.link !== '#' ? [{ url: project.link, icon: 'open-in-new' }] : [])).map((l: any) => (
+        <a href={l.url} target="_blank" data-external-link class="p-1.5 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 text-white/80 hover:text-accent hover:border-accent/40 transition-colors">
+          <Icon name={`mdi:${l.icon ?? 'open-in-new'}`} class="w-4 h-4" />
+        </a>
+      ))}
+    </div>
   </div>
 
   <div class="p-6 space-y-4">
@@ -35,9 +43,6 @@ const isSlider = project.images.length > 1;
         <span class="text-accent text-[10px] uppercase tracking-widest font-bold">{project.category}</span>
         <h3 class="text-xl font-heading font-bold text-white mt-1">{project.title}</h3>
       </div>
-      <a href={project.link} target="_blank" data-external-link class="text-white/40 hover:text-accent transition-colors">
-        <Icon name="mdi:open-in-new" class="w-6 h-6" />
-      </a>
     </div>
 
     <p class="text-gray-400 text-sm font-body line-clamp-3">
