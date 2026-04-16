@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-accent: #a476ff;
+  --color-background: #1d1a3c;
+  --color-container: #24243e;
+  --color-line: #f3f3f310;
+  --color-gray: #ffffffaf;
+  --color-darkgray: rgba(255, 255, 255, 0.3);
+  --color-green: #00ff41;
+  
+  /* Fonts */
+  --font-heading: "Space Grotesk Variable", sans-serif;
+  --font-body: "Inter Variable", sans-serif;
+
+  /* Custom Animations */
+  --animate-fall: fall linear forwards;
+  --animate-bounce-twice: double-bounce-pause 5.6s ease-in-out infinite;
+
+  @keyframes fall {
+    0% { transform: translateY(-5vh); opacity: 0; }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.3; }
+    100% { transform: translateY(90vh); opacity: 0; }
+  }
+
+  @keyframes double-bounce-pause {
+    0%, 5.3%, 10.7%, 100% { transform: translateY(0); }
+    2.6% { transform: translateY(-8px); }
+    8% { transform: translateY(-8px); }
+  }
+
+  @keyframes launch {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-50px) scale(0.5); opacity: 0; }
+  }
+}
+
+@layer base {
+  *::selection {
+    @apply bg-accent text-background;
+  }
+
+  body {
+    @apply font-body antialiased text-white;
+    background: linear-gradient(
+      135deg,    
+    #1f1c2c 0%,
+    #1d1a3c 50%,
+    #24243e 100%
+    );
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .falling-letter {
+    @apply absolute font-heading font-extralight select-none pointer-events-none leading-none;
+    animation: fall linear forwards;
+  }
+  
+  .launching {
+    animation: launch 0.5s ease-in forwards;
+  }
+}
+
+/* Custom Scrollbar for a cleaner look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+::-webkit-scrollbar-thumb {
+  /* @apply bg-gray; */
+  border-radius: 100px;
+  background-color: color-mix(in srgb, var(--color-background), white 20%);
+}
+::-webkit-scrollbar-thumb:hover {
+  /* @apply bg-gray-50; */
+  background-color: color-mix(in srgb, var(--color-background), white 40%);
+}

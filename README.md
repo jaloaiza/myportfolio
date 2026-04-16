@@ -1,0 +1,87 @@
+# CareerPortfolio: Data-Driven Astro SSG
+Live Demo: [careerportofio.netlify.app](https://careerportofio.netlify.app)
+
+[![Astro](https://img.shields.io/badge/Astro-FF5D01?logo=astro&logoColor=white)](https://astro.build/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Contributions Welcome](https://img.shields.io/badge/🤝_Contributions-Welcome-blue)](CONTRIBUTING.md)
+
+A high-performance, responsive portfolio built with **Astro**, **Tailwind CSS**, and **Native Browser Animations**. Designed to be 100% data-driven and easy to customize as a reusable template.
+
+## 🌟 Highlights
+- **Zero-JS by Default:** Leveraging Astro's islands architecture.
+- **JSON-First:** Update your information in `src/data/` without touching any code.
+- **Fully Responsive:** Optimized for mobile, tablet, and desktop.
+- **Performance:** Optimized for perfect Lighthouse scores.
+
+## 🛠️ Tech Stack
+- **Frontend:** [Astro](https://astro.build/) (Static Site Generation)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Icons:** [Iconify](https://iconify.design/) via `astro-icon`
+- **Deployment:** [Netlify](https://www.netlify.com)
+- **Backend:** [FastAPI](https://fastapi.tiangolo.com/) (Not included, works without backend)
+
+## 🚀 Getting Started
+Follow these instructions to get a local copy up and running.
+
+### Prerequisites
+Make sure you have **Astro v6** and **Node.js** (v22.12.0 or higher) installed on your machine.
+
+### Installation
+1. Click **Use this template** on this repository.
+2. Choose **Create a new repository**.
+3. Clone your new repository: `git clone <your-repo-url>`
+4. Navigate to your repo: `cd <your-repo-name>`
+5. Install dependencies: `npm install`
+6. Start development server: `npm run dev`
+7. Update your content in `/src/data/`
+8. Build and deploy on your preferred platform
+
+
+## 🛠️ How to Customize
+To make this portfolio yours, simply edit the JSON files in `src/data/`.
+```
+Directory Structure
+├── public/              # Static assets (placeholder.jpg, favicon)
+├── src/
+│   ├── components/      # Reusable Astro components
+│   ├── data/            # JSON files for project data
+│   ├── layouts/         # Layout templates with Meta tags
+│   ├── pages/           # Site routes (index.astro)
+│   └── styles/          # global css styles
+├── astro.config.mjs     # Astro configuration
+└── tsconfig.json        # Typescript configuration
+```
+
+#### Useful commands and links for reference:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+Tailwind CSS: `npx astro add tailwind`
+
+Inter font: `npm install @fontsource-variable/inter` 
+
+Host Grotesk font: `npm install @fontsource-variable/host-grotesk`
+
+Astro-icon: `npx astro add astro-icon`
+
+Material Desing Icons: `npm install @iconify-json/mdi`
+
+https://docs.astro.build/en/guides/styling/#add-tailwind-4
+
+https://www.astroicon.dev
+
+https://icon-sets.iconify.design/mdi/?category=Material
+
+## 🤝 Contributing
+Contributions are welcome!  
+Please read the [Contributing Guide](CONTRIBUTING.md) before opening a PR.
+
+## 📝 License
+This project is licensed under the [MIT License](LICENSE)

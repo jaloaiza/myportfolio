@@ -1,0 +1,156 @@
+---
+import careerData from '../data/career.json';
+---
+
+<section id="career" class="py-20 px-4 md:px-0 max-w-6xl mx-auto overflow-hidden">
+  <div class="container mx-auto  reveal-content" style="animation-delay: 1000ms;">
+    <div>
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-2 flex items-center gap-4">
+        <span class="text-accent">/</span> Career
+      </h2>
+      <p class="text-gray font-body text-sm max-w-md pb-8">
+        A brief overview of my career
+      </p>
+    </div>
+
+    <div class="relative">
+      {/* Vertical Line*/}
+      <div class="absolute left-2 md:left-1/2 md:-translate-x-1/2 top-5 bottom-0 w-0.5 bg-linear-to-b from-accent via-white/10 to-transparent"></div>
+
+      <div class="md:hidden space-y-8">
+        {careerData.map((item, index) => (
+          <div class="relative pl-6">
+            {/* Dot for mobile view*/}
+            <div class="scroll-stat absolute left-0 top-1 z-10">
+                <div class={`w-4 h-4 rounded-full border-4 border-[#0a0a0a] 
+                            ${index === 0 ? 'bg-accent shadow-[0_0_15px_#00ff41] animate-pulse' : 'bg-gray-600'}`}>
+                </div>
+              </div>
+            
+            {/* cards for mobile view*/}
+            <div class="scroll-stat bg-white/5 border border-white/10 p-4 rounded-2xl">
+              <span class="text-accent font-mono text-xs tracking-widest uppercase">{item.period}</span>
+              <h3 class="text-xl font-heading font-bold text-white mt-1">{item.role}</h3>
+              <p class="text-gray-400 text-sm mb-4">{item.company}</p>
+              <p class="text-gray-500 font-body text-sm leading-relaxed mb-4">{item.description}</p>
+              <div class="flex flex-wrap gap-2">
+                {item.skills.map(skill => (
+                  <span class="px-2 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] text-gray-300">{skill}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="hidden md:block space-y-4">
+        {careerData.map((item, index) => (
+          <div class="relative grid grid-cols-2">
+            {/* Center Dot */}
+              <div class="scroll-stat absolute left-1/2 -translate-x-1/2 top-1 z-10">
+                <div class={`w-4 h-4 rounded-full border-4 border-[#0a0a0a] 
+                            ${index === 0 ? 'bg-accent shadow-[0_0_15px_#00ff41] animate-pulse' : 'bg-gray-600'}`}>
+                </div>
+              </div>
+
+            {/* Left Side (even items) */}
+            <div class="md:px-6 md:py-0">
+              {index % 2 === 0 ? (
+                <div class="scroll-stat bg-white/5 border border-white/10 p-6 rounded-2xl text-right hover:border-accent/30 transition-all group">
+                  <span class="text-accent font-mono text-xs tracking-widest uppercase">{item.period}</span>
+                  <h3 class="text-xl font-heading font-bold text-white mt-1">{item.role}</h3>
+                  <p class="text-gray text-sm mb-4">{item.company}</p>
+                  <p class="text-gray-400 font-body text-sm leading-relaxed mb-4">{item.description}</p>
+                  <div class="flex flex-wrap gap-2 justify-end">
+                    {item.skills.map(skill => (
+                      <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] text-gray-300 group-hover:border-accent/20">{skill}</span>
+                    ))}
+                  </div>
+                </div>
+              ) : <div class="h-full pointer-events-none"></div>}
+            </div>
+
+            {/* Right Side (odd items) */}
+            <div class="md:px-6 md:py-0">
+              {index % 2 !== 0 ? (
+                <div class="scroll-stat bg-white/5 border border-white/10 p-6 rounded-2xl hover:border-accent/30 transition-all group">
+                  <span class="text-accent font-mono text-xs tracking-widest uppercase">{item.period}</span>
+                  <h3 class="text-xl font-heading font-bold text-white mt-1">{item.role}</h3>
+                  <p class="text-gray text-sm mb-4">{item.company}</p>
+                  <p class="text-gray-400 font-body text-sm leading-relaxed mb-4">{item.description}</p>
+                  <div class="flex flex-wrap gap-2">
+                    {item.skills.map(skill => (
+                      <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] text-gray-300 group-hover:border-accent/20">{skill}</span>
+                    ))}
+                  </div>
+                </div>
+              ) : <div class="h-full pointer-events-none"></div>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<style>
+  /* Reveal whole section when website loads */
+  .reveal-content {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: revealIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+
+  @keyframes revealIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Initial state of the card */
+  .scroll-stat {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Revealed state while scrolling*/
+  .scroll-stat.reveal {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+</style>
+
+
+<script>
+  function revealCards() {
+    const cards = document.querySelectorAll('.scroll-stat');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Add a slight delay based on the card's position to create a wave effect
+          const index = Array.from(cards).indexOf(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('reveal');
+          }, (index % 3) * 150); // Delay resets every row for a clean staggered look
+          
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15, // Trigger when 15% of the card is visible
+      rootMargin: '0px 0px -10px 0px' // Trigger slightly before it hits the viewport
+    });
+
+    cards.forEach(card => observer.observe(card));
+  }
+
+  // Runs on initial load
+  revealCards();
+  
+  // Necessary for Astro View Transitions if you use them
+  document.addEventListener('astro:after-swap', revealCards);
+</script>

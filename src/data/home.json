@@ -1,0 +1,30 @@
+{
+  "name": "John Doe",
+  "photoUrl": "favicon.svg",
+  "intro": "A brief, compelling introduction about who you are and what you do. Mention your core philosophy, your passion for building digital products, and your drive for creating efficient, high-impact solutions.",
+  "introHtml": "A brief, compelling introduction about who you are and what you do. Mention your core <span class='text-white font-bold'>philosophy</span>, your passion for building digital products, and your drive for creating <span class='text-white font-bold'>efficient</span>, <span class='text-white font-bold'>high-impact</span> solutions.",
+  "webpageTitle": "John Doe",
+  "resumeUrl": "https://example-files.online-convert.com/document/pdf/example.pdf",
+  "socials": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/[YOUR_USER_NAME]",
+      "icon": "mdi:github"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://linkedin.com/in/[YOUR_USER_NAME]",
+      "icon": "mdi:linkedin"
+    },
+    {
+      "name": "Email",
+      "url": "mailto:your-mail@example.com",
+      "icon": "mdi:email"
+    },
+    {
+      "name": "Whatsapp",
+      "url": "https://wa.me/[YOUR_WHATSAPP_NUMBER]",
+      "icon": "mdi:whatsapp"
+    }
+  ]
+}
