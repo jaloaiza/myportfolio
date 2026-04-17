@@ -3,8 +3,11 @@ import ProjectCard from './project-card.astro';
 import ProjectDrawer from './project-drawer.astro';
 import projectsData from '../data/projects.json';
 
-const { showMoreLink = false } = Astro.props;
+const { showMoreLink = false, featuredOnly = false } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const projects = featuredOnly
+  ? projectsData.filter((p: any) => p.featured)
+  : projectsData;
 ---
 
 <section id="projects" class="py-4 md:py-20 px-4 md:px-0 overflow-hidden">
@@ -19,7 +22,7 @@ const base = import.meta.env.BASE_URL;
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {projectsData.map((project) => (
+      {projects.map((project) => (
         <ProjectCard project={project} />
       ))}
     </div>

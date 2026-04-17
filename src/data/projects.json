@@ -1,6 +1,7 @@
 [
   {
     "title": "How I Mentored 180+ Students!",
+    "featured": true,
     "category": "Experience",
     "date": "September 2025 - Present",
     "description": "Led Production and QA student mentorship for 180+ students across 12 teams through structured worfklows, open retrospectives, and technical education.",
@@ -106,6 +107,7 @@
   },
   {
     "title": "Producing from Concept to Publication",
+    "featured": true,
     "category": "Project Experience",
     "date": "Sept 2024 - Aug 2025",
     "description": "Learn about how I was the Producer on a 10-person interdisciplinary team for a published work all the way from concept.",
