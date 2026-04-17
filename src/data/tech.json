@@ -1,35 +1,30 @@
 {
   "categories": [
     {
-      "title": "Mobile Development",
+      "title": "Game Engines & Tools",
       "skills": [
-        { "name": "Flutter", "level": 3, "icon": "skill-icons:flutter-dark" },
-        { "name": "Dart", "level": 3, "icon": "skill-icons:dart-dark" },
-        { "name": "Kotlin", "level": 1, "icon": "skill-icons:kotlin-dark" }
+        { "name": "Unity", "level": 3, "icon": "skill-icons:unity-dark" },
+        { "name": "Unreal Engine", "level": 3, "icon": "skill-icons:unrealengine" },
+        { "name": "Git", "level": 2, "icon": "skill-icons:git" },
+        { "name": "Perforce", "level": 2, "icon": "mdi:source-branch" }
       ]
     },
     {
-      "title": "Frontend",
-      "skills": [
-        { "name": "Astro", "level": 2, "icon": "skill-icons:astro" },
-        { "name": "HTML", "level": 2, "icon": "skill-icons:html" },
-        { "name": "CSS", "level": 2, "icon": "skill-icons:css" },
-        { "name": "Tailwind CSS", "level": 1, "icon": "skill-icons:tailwindcss-dark" }
+      "title": "Production",
+      "skills":[
+        { "name": "ClickUp", "level": 2, "icon": "mdi:clipboard-check-outline" },
+        { "name": "Hack N Plan", "level": 2,"icon": "mdi:sword-cross" },
+        { "name": "Excel", "level": 2,"icon": "vscode-icons:file-type-excel" },
+        { "name": "Jira", "level": 1, "icon": "mdi:ticket-outline"}
       ]
     },
     {
-      "title": "Backend",
+      "title": "Programming Languages",
       "skills": [
-        { "name": "FastAPI", "level": 2, "icon": "skill-icons:fastapi" },
-        { "name": "Python", "level": 2, "icon": "skill-icons:python-dark" },
-        { "name": "Firebase", "level": 3, "icon": "vscode-icons:file-type-firebase" }
-      ]
-    },
-    {
-      "title": "Database",
-      "skills": [
-        { "name": "SQLite", "level": 3, "icon": "skill-icons:sqlite" },
-        { "name": "PostgreSQL", "level": 2, "icon": "skill-icons:postgresql-dark" }
+        { "name": "C#", "level": 3, "icon": "skill-icons:cs" },
+        { "name": "C++", "level": 3, "icon": "skill-icons:cpp" },
+        { "name": "C", "level": 2, "icon": "skill-icons:c" },
+        { "name": "Python", "level": 1, "icon": "skill-icons:python-dark"}
       ]
     }
   ]
