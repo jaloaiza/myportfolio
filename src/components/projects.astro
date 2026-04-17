@@ -3,21 +3,21 @@ import ProjectCard from './project-card.astro';
 import ProjectDrawer from './project-drawer.astro';
 import projectsData from '../data/projects.json';
 
-const { showMoreLink = false, featuredOnly = false } = Astro.props;
+const { featuredOnly = false, showMoreLink = false } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const projects = featuredOnly
   ? projectsData.filter((p: any) => p.featured)
-  : projectsData;
+  : projectsData.filter((p: any) => !p.featured);
 ---
 
 <section id="projects" class="py-4 md:py-20 px-4 md:px-0 overflow-hidden">
   <div class="container mx-auto">
     <div class="mb-16">
       <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-2 flex items-center gap-4">
-          <span class="text-accent">/</span> Featured Projects
+          <span class="text-accent">/</span> {featuredOnly ? 'Featured Projects' : 'Projects'}
         </h2>
       <p class="text-gray font-body text-sm max-w-md">
-        These are my featured projects for Production, UI Programming, Gameplay and more! To view all projects, visit the Projects page.
+        {featuredOnly ? 'A selection of my best work.' : 'All projects — Production, UI Programming, Gameplay and more.'}
       </p>
     </div>
 

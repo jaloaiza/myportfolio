@@ -364,8 +364,9 @@
       return src;
     }
 
-    function bodyToHtml(text: string): string {
-      return text.split('\n\n').map(p => {
+    function bodyToHtml(body: string | string[]): string {
+      const paragraphs = Array.isArray(body) ? body : body.split('\n\n');
+      return paragraphs.map(p => {
         const html = esc(p.trim())
           .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
           .replace(/\*(.+?)\*/g, '<em>$1</em>');

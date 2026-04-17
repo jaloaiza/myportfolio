@@ -2,7 +2,7 @@
   {
     "title": "How I Mentored 180+ Students!",
     "featured": true,
-    "category": "Experience",
+    "category": "Work Experience",
     "date": "September 2025 - Present",
     "description": "Led Production and QA student mentorship for 180+ students across 12 teams through structured worfklows, open retrospectives, and technical education.",
     "images": ["MentorWork/QAPresentation.png", "MentorWork/OptimizationPresentation.png"],
@@ -15,11 +15,15 @@
       "blocks": [
         {
           "type": "text",
-          "body": "As a **Production & QA Student Mentor**, I supported over **180 interdisciplinary students** across 12 game teams by providing structured guidance on production workflows, QA practices, and delivery readiness."
+          "body": [
+            "As a **Production & QA Student Mentor**, I supported over **180 interdisciplinary students** across 12 game teams by providing structured guidance on production workflows, QA practices, and delivery readiness."
+          ]
         },
         {
           "type": "text",
-          "body": "In addition to one-on-one mentorship, I led multiple breakout sessions and presentations to establish shared production standards, encourage open discussion, and improve technical awareness across teams."
+          "body": [
+            "In addition to one-on-one mentorship, I led multiple breakout sessions and presentations to establish shared production standards, encourage open discussion, and improve technical awareness across teams."
+          ]
         },
         {
           "type": "media",
@@ -33,11 +37,10 @@
         },
         {
           "type": "text",
-          "body": "This presentation introduces students to the role of a QA Advocate and the importance of structured quality assurance within a game development pipeline. It covers core QA workflows such as build checklists, milestone checklists, bug reporting, and test management, emphasizing QA as a collaborative, cross-disciplinary responsibility rather than an isolated role."
-        },
-        {
-          "type": "text",
-          "body": "The talk also explores how QA data directly supports production decision making, including build readiness, task prioritization, and risk assessment. Through concrete examples, templates, and workflows, students learn how clear reporting, consistent testing practices, and open communication contribute to healthier development cycles and higher-quality builds. The presentation was delivered as part of a breakout session to establish shared QA standards across multiple interdisciplinary teams."
+          "body": [
+            "This presentation introduces students to the role of a QA Advocate and the importance of structured quality assurance within a game development pipeline. It covers core QA workflows such as build checklists, milestone checklists, bug reporting, and test management, emphasizing QA as a collaborative, cross-disciplinary responsibility rather than an isolated role.",
+            "The talk also explores how QA data directly supports production decision making, including build readiness, task prioritization, and risk assessment. Through concrete examples, templates, and workflows, students learn how clear reporting, consistent testing practices, and open communication contribute to healthier development cycles and higher-quality builds."
+          ]
         },
         {
           "type": "media",
@@ -51,15 +54,11 @@
         },
         {
           "type": "text",
-          "body": "This talk was designed to help student teams identify, diagnose, and prioritize performance issues using Unreal Engine’s built in optimization tools."
-        },
-        {
-          "type": "text",
-          "body": "The presentation covers rasterization cost, screen space impact, LODs and impostors, lighting and shadow complexity, shader complexity and quad overdraw, material instruction counts, and draw call management. Emphasis is placed on production realistic optimization workflows. Teaching teams how to focus on high impact fixes rather than low return micro-optimizations."
-        },
-        {
-          "type": "text",
-          "body": "The content reflects real production challenges commonly encountered in student and small team projects, bridging the gap between visual quality, performance constraints, and practical development timelines."
+          "body": [
+            "This talk was designed to help student teams identify, diagnose, and prioritize performance issues using Unreal Engine's built in optimization tools.",
+            "The presentation covers rasterization cost, screen space impact, LODs and impostors, lighting and shadow complexity, shader complexity and quad overdraw, material instruction counts, and draw call management. Emphasis is placed on production realistic optimization workflows — teaching teams how to focus on high impact fixes rather than low return micro-optimizations.",
+            "The content reflects real production challenges commonly encountered in student and small team projects, bridging the gap between visual quality, performance constraints, and practical development timelines."
+          ]
         },
         {
           "type": "heading",
@@ -108,7 +107,7 @@
   {
     "title": "Producing from Concept to Publication",
     "featured": true,
-    "category": "Project Experience",
+    "category": "Production",
     "date": "Sept 2024 - Aug 2025",
     "description": "Learn about how I was the Producer on a 10-person interdisciplinary team for a published work all the way from concept.",
     "images": ["ProdGF/Dashboard.png"],
@@ -123,7 +122,10 @@
       "blocks": [
         {
           "type": "text",
-          "body": "As **Producer**, I was responsible for guiding Gambler's Fallacy from **early concept** through **playable milestones**. I oversaw team coordination, **scope management**, and **production planning** while supporting **rapid iteration** across design, art and engineering. My focus was **maintaining momentum** and clarity while enabling the team to **execute creatively** and **efficiently**."
+          "body": [
+            "As **Producer**, I was responsible for guiding Gambler's Fallacy from **early concept** through **playable milestones**.",
+            "I oversaw team coordination, **scope management**, and **production planning** while supporting **rapid iteration** across design, art and engineering. My focus was **maintaining momentum** and clarity while enabling the team to **execute creatively** and **efficiently**."
+          ]
         },
         {
           "type": "media",
@@ -181,6 +183,126 @@
             "Expanded my **understanding** of **product management** by working closely with a programmer focused on tooling and planning",
             "Developed an appreciation for how **production tools** and **visibility systems** can directly **improve team efficiency** and decision making",
             "Refined my ability to produce for the same team across multiple projects, applying lessons learned from earlier productions"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "title": "Gambler's Fallacy",
+    "category": "UI Programmer",
+    "date": "Sept 2024 - Aug 2025",
+    "description": "I worked alongside a UI Designer and Artist to implement gameplay interfaces across multiple iterations.",
+    "images": ["UIGF/MainMenuScroll.gif"],
+    "tech": ["Perforce", "Unity 2023", "C#", "MVC", "MVVM", "Page Stack Navigation", "Figma"],
+    "platforms": ["steam", "youtube"],
+    "links": [
+      {"label": "Steam", "url": "https://store.steampowered.com/app/4459000/Gamblers_Fallacy/"},
+      {"label": "YouTube", "url": "https://www.youtube.com/watch?v=r9oyNU1c5SQ"}
+    ],
+    "details": {
+      "role": "UI & Gameplay Programmer",
+      "tags": ["UI/UX", "UI Architectures", "UI Design Collaboration"],
+      "blocks": [
+        {
+          "type": "text",
+          "body": [
+            "On the technical/UI side, I engineered a robust front-end architecture in Unity, working closely with both a UI Designer and UI Artist to deliver flexible, production-ready systems.",
+            "I implemented multiple UI architectural patterns, including MVC and MVVM, to cleanly separate data, logic, and presentation across various menu and gameplay interfaces. For high-level navigation, I built a Page Stack Menu Controller, enabling structured screen transitions through push/pop operations similar to modern app navigation stacks.",
+            "To support designer-driven workflows, I integrated DOTween to create reusable, designer-friendly animated page transitions, allowing screens to smoothly animate on push/pop without requiring custom scripting for each menu. I also created tools and editor setups that made widget composition, state changes, and layout iteration significantly easier for both the Designer and the Artist."
+          ]
+        },
+        {
+          "type": "media",
+          "src": "UIGF/GF_PauseMenu.gif",
+          "caption": "Animated Pause Menu"
+        },
+        {
+          "type": "heading",
+          "text": "Pause Menu"
+        },
+        {
+          "type": "text",
+          "body": [
+            "Implemented a Page/Stack based system to handle in game UI systems, including pop and push callback functions. Additionally, having different animations for menus entering/exiting, with different easing options.",
+            "This architecture allows smooth transitions and flexible control over menu flow enabling scalability and proper menu management."
+          ]
+        },
+        {
+          "type": "media",
+          "src": "UIGF/MainMenuScroll.gif",
+          "caption": "Animated Main Menu"
+        },
+        {
+          "type": "heading",
+          "text": "Main Menu"
+        },
+        {
+          "type": "text",
+          "body": [
+            "The main menu was implemented to be in world space to give a more diegetic feel — simulating that the player is at a poker table.",
+            "Utilizing a button manager to handle all world space animations and button functionality."
+          ]
+        },
+        {
+          "type": "media",
+          "src": "UIGF/GF_Inventory.gif",
+          "caption": "Learn about how I refactored the inventory using a web development pattern."
+        },
+        {
+          "type": "heading",
+          "text": "Inventory (MVC)"
+        },
+        {
+          "type": "text",
+          "body": [
+            "Developed a modular inventory system in Unity using an MVC (Model–View–Controller) architecture.",
+            "The Model layer was built on top of another developer's backend inventory system, and I collaborated closely with them to refine and extend the API. This ensured that my View and Controller layers could reliably interface with the underlying data while maintaining clean separation of responsibilities.",
+            "On the UI side, I implemented a fully interactive drag-and-drop system for deck management, allowing players to intuitively move cards or items between the deck and various inventory sections. I also built hover-based item tooltips that dynamically display detailed item descriptions and stats, improving clarity and user feedback during inventory interactions.",
+            "This architecture-focused approach resulted in a flexible, maintainable inventory UI that could adapt to future features and integrate seamlessly with the backend system."
+          ]
+        },
+        {
+          "type": "media",
+          "src": "UIGF/GF_MM_Credits.gif",
+          "caption": "Animated Main Menu Credits"
+        },
+        {
+          "type": "heading",
+          "text": "Credits"
+        },
+        {
+          "type": "text",
+          "body": [
+            "The credits features two parts, the sliding panels and individual team roles.",
+            "Utilizing a menu/page stack system to handle all pushes/pop animations.",
+            "Alongside this, the initial credits animation uses a pre-push action to animate the camera and then bring in the credit panels/cards."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Programmer Responsibilities"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Collaborated with a UI designer to develop scalable, designer-friendly interfaces.",
+            "Engineered an inventory management system using an MVC framework.",
+            "Designed and implemented a menu controller with an API supporting a dynamic page/stack system.",
+            "Developed a procedural system for UI art to generate multiple interface assets."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Programmer Challenges"
+        },
+        {
+          "type": "list",
+          "items": [
+            "It was difficult to handle two roles of being a UI/UX engineer and a producer at once.",
+            "Learning how to closely collaborate with a UI designer for the first time, to best support them in the design process",
+            "As gameplay systems that needed UI systems, became bigger and needed more attention. Resulting in the UI systems needing to be restructured and rewritten",
+            "Learning and implementing new UI architectures such as MVC, MVVM, and a Page stack system, and iterating upon them"
           ]
         }
       ]

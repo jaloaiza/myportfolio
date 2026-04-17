@@ -1,26 +1,58 @@
 [
   {
-    "company": "Demo Company",
-    "role": "Lead Software Engineer",
-    "period": "Oct 2025 - Present",
-    "type": "Full time job",
-    "description": "Leading cross-platform mobile development using Flutter and FastAPI. Focused on scalable system design and high-performance data processing.",
-    "skills": ["Leading", "Collaboration"]
+    "company": "DigiPen Institute of Technology",
+    "role": "Production/QA & UI Student Mentor",
+    "period": "Sept 2025 - April 2026",
+    "type": "Professional Experience",
+    "description": "Mentoring 180+ students across 12 interdisciplinary game teams in Production, QA, and UI practices. Developed task management, bug reporting, and backlogging resources adopted by 5+ teams. Designed and hosted 3 workshops for Producers & Quality Advocates. Pair programmed with students to build fundamental UI architectures and systems.",
+    "skills": ["Production Planning", "QA Workflows", "Workshop Facilitation", "UI Architecture", "Pair Programming", "Cross-disciplinary Collaboration"]
   },
   {
-    "company": "Demo Company",
-    "role": "Full-stack Developer",
-    "period": "Sep 2023 - Sep 2025",
-    "type": "Full time job",
-    "description": "Specializing in Business Research Methods and Strategic HRM. Applying analytical frameworks to human capital management.",
-    "skills": ["React", "Node.js", "PostgreSQL", "Docker"]
+    "company": "Guard Dog on Duty | Team of 12 | Unreal Engine 5.4",
+    "role": "Producer & UI/UX Programmer",
+    "period": "Jan 2026 - Present",
+    "type": "Student Project",
+    "description": "Coordinating 3 programmers, 3 artists, 4 game designers, and 2 sound designers to deliver a playable game now wishlistable on Steam. Negotiated with an IP team to receive publication support and IP rights. Integrated CommonUI in C++ to establish a scalable foundation, developed a reusable Root Layout architecture, and implemented asynchronous widget pushing for cleaner menu transitions.",
+    "skills": ["Production", "CommonUI", "C++", "Root Layout Architecture", "Sprint Planning", "IP Negotiation", "Unreal Engine 5"]
   },
   {
-    "company": "Demo University of Tech",
-    "role": "BSc in Computer Science",
-    "period": "Jun 2020 - Jun 2024",
-    "type": "Student",
-    "description": "Specializing in Business Research Methods and Strategic HRM. Applying analytical frameworks to human capital management.",
-    "skills": ["C++", "OOP", "Problem Solving"]
+    "company": "Gambler's Fallacy | Team of 10 | Unity 2023.2",
+    "role": "Producer & UI/UX Programmer",
+    "period": "Sept 2024 - Aug 2025",
+    "type": "Student Project",
+    "description": "Oversaw the project from pre-production to shipping on Steam across 6 key milestones. Implemented 10+ unique UI systems based on Figma prototypes using MVC and MVVM patterns. Built a Page Stack Menu Controller, drag-and-drop inventory system, and dynamic HUD integrated with gameplay systems. Conducted 45+ playtests to drive UI iteration.",
+    "skills": ["Production", "MVC", "MVVM", "Page Stack Navigation", "Unity", "C#", "Figma", "Sprint Planning", "Bug Triage"]
+  },
+  {
+    "company": "Global Game Jam | Team of 5 | Unreal 5.6",
+    "role": "UI & Gameplay Programmer",
+    "period": "Jan 2026",
+    "type": "Game Jam",
+    "description": "Built a data-driven dialogue system using FDataAssets and structs, enabling designers and programmers to trigger dialogue through gameplay events. Implemented typewriter text, skippable dialogue, and event-based integration. Developed a UX-focused post-process interaction system using Custom Stencil to reinforce player feedback and visual clarity.",
+    "skills": ["Unreal Engine 5", "C++", "Data-Driven Design", "UX Systems", "Blueprints", "Dialogue Systems"]
+  },
+  {
+    "company": "Chemical Overdrive | Team of 10 | Unreal Engine 5.2",
+    "role": "Producer",
+    "period": "Sept 2023 - Apr 2024",
+    "type": "Student Project",
+    "description": "Oversaw an interdisciplinary team of 7 programmers, 1 sound designer, and 1 artist. Coordinated daily production workflows in ClickUp and Excel by triaging tasks and bug reports. Evaluated feature impact against production constraints and refactored combat to prioritize movement mechanics. Replaced ClickUp with Excel checklists to improve team adoption and build status visibility.",
+    "skills": ["Production", "ClickUp", "Excel", "Task Triage", "Scope Management", "Sprint Planning", "Unreal Engine 5"]
+  },
+  {
+    "company": "Card Game UI Simulation | Solo Project | Unity 2023.2",
+    "role": "UI Programmer",
+    "period": "2024",
+    "type": "Solo Project",
+    "description": "Developed a modular Action System in Unity to streamline unlimited combinations of UI animations for a poker interface, enabling seamless transitions and dynamic visual feedback. Implemented a reusable framework for UI elements focused on scalability and rapid prototyping.",
+    "skills": ["Unity", "C#", "UI Animation", "Modular Architecture", "Rapid Prototyping"]
+  },
+  {
+    "company": "DigiPen Institute of Technology | Redmond, WA",
+    "role": "B.S. Computer Science and Game Design",
+    "period": "2022 - Apr 2026",
+    "type": "Education",
+    "description": "Studying Computer Science and Game Design with a focus on UI/UX programming, production workflows, and game systems development.",
+    "skills": ["C++", "C#", "Game Design", "Software Engineering", "UI/UX", "Production"]
   }
 ]
