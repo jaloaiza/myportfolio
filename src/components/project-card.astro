@@ -3,7 +3,10 @@ import { Icon } from 'astro-icon/components';
 const { project } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-const isSlider = project.images.length > 1;
+const images = project.images ?? [];
+const platforms = project.platforms ?? [];
+const tech = project.tech ?? [];
+const isSlider = images.length > 1;
 ---
 
 <div class="project-card group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-accent/40 transition-all duration-500 cursor-pointer" data-project={JSON.stringify(project)}>
@@ -11,7 +14,7 @@ const isSlider = project.images.length > 1;
     <div class="absolute inset-0 bg-accent/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none"></div>
     
     <div class={`w-full h-full relative ${isSlider ? 'image-slider' : ''}`}>
-      {project.images.map((img: string, index: number) => (
+      {images.map((img: string, index: number) => (
         <img
           src={`${base}/${img}`}
           alt={`${project.title} screenshot ${index + 1}`}
@@ -22,7 +25,7 @@ const isSlider = project.images.length > 1;
     </div>
     
     <div class="absolute top-3 right-3 flex gap-2 z-20">
-      {project.platforms.map((p: string) => (
+      {platforms.map((p: string) => (
         <div class="p-1.5 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 text-white/80">
           <Icon name={`mdi:${p}`} class="w-4 h-4" />
         </div>
@@ -51,7 +54,7 @@ const isSlider = project.images.length > 1;
     </p>
 
     <div class="flex flex-wrap gap-2 pt-2">
-      {project.tech.map((t: string) => (
+      {tech.map((t: string) => (
         <span class="px-2 py-1 bg-white/5 rounded-md text-[10px] text-white/60 border border-white/5">
           {t}
         </span>

@@ -307,5 +307,119 @@
         }
       ]
     }
+  },
+  {
+    "title": "Chemical Overdrive",
+    "category": "UI Programmer | Producer",
+    "date": "Sept 2023 - Aug 2024",
+    "description": "Developed in Unreal Engine 5 by a collaborative team of 10, including programmers, designers, a composer/sound designer, and a UI artist, Chemical Overdrive delivers a visceral, punk-inspired experience with an aggressive sense of style and speed.",
+    "images": ["CO/CO_Checkpoint.gif"],
+    "tech": ["Tortoise SVN", "Unreal Engine 5", "Blueprints", "Figma", "Excel", "UMG"],
+    "details": {
+      "role": "UI & Gameplay Programmer",
+      "tags": ["UI/UX", "Production", "UI Architectures", "UI Art Collaboration"],
+      "blocks": [
+        {
+          "type": "text",
+          "body": [
+            "On the technical side, I developed a custom UI workflow entirely in UMG and Blueprints. I built a modular widget framework designed for rapid iteration and efficient reuse across multiple menus and HUD elements. A central part of this system was a custom state switcher, a Blueprint-driven mechanism that controlled widget activation, deactivation, and transitions without relying on heavy or monolithic menu blueprints. This switcher abstracted state management into a clean, maintainable structure, making it easy to swap UI screens, update widget states, and manage layered UI flows.",
+            "To streamline UI creation, I also built reusable modular button components, each exposing customizable styling, animations, interaction logic, and sound cues. This allowed the UI team to rapidly assemble screens with consistent function and aesthetics while reducing duplicated logic.",
+            "This technical foundation improved iteration speed, UI stability, and menu clarity throughout development, contributing to a polished and responsive front-end experience aligned with the game’s fast-moving, high-energy identity."
+          ]
+        },
+        {
+          "type": "media",
+          "src": "CO/CO_MM.gif",
+          "caption": "Main Menu"
+        },
+        {
+          "type": "heading",
+          "text": "Main Menu"
+        },
+        {
+          "type": "text",
+          "body": [
+            "Designed and implemented a stylized main menu in Unreal Engine 5 featuring a live, cinematic background.",
+            "I created a main menu experience that feels dynamic and alive by incorporating an animated in-engine backdrop, ambient city visuals, and subtle character breathing animations. Paired with atmospheric music, the menu conveys a strong sense of place and mood, giving players an immediate “city-at-night” vibe before the game even begins."
+          ]
+        },
+        {
+          "type": "media",
+          "src": "CO/CO_Checkpoint.gif",
+          "caption": "Checkpoint System"
+        },
+        {
+          "type": "heading",
+          "text": "Checkpoint System & HUD"
+        },
+        {
+          "type": "text",
+          "body": [
+            "Designed and developed a multi-checkpoint system. having two different kinds of checkpoints for local and major points, throughout the level.",
+            "Additionally, implementing a compact multi-widget HUD. To represent health, stamina, and dash cooldown."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Collaborated with a UI designer to develop scalable, designer-friendly interfaces.",
+            "Engineered an inventory management system using an MVC framework.",
+            "Designed and implemented a menu controller with an API supporting a dynamic page/stack system.",
+            "Developed a procedural system for UI art to generate multiple interface assets."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Programmer Responsibilities"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Led the design and development of all user interfaces, collaborating with a UI artist to bring in high-fidelity interfaces.",
+            "Responsible for implementing and overseeing all user interface feedback, such as checkpoint systems, HUD progress bars, and tutorialization.",
+            "Designed and developed a full checkpoint system, with major and minor checkpoints. Aiding it with user interface pop ups",
+            "Utilized Unreal Engine's UMG system, to create hierarchal widgets, to manage the HUD and sub widgets"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Programmer Challenges"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Difficulty managing the responsibilities of being a first time producer and being a UI/UX engineer",
+            "As it was my first time using Unreal Engine, and UMG, it was interesting to learn all the nuances of the systems and engine",
+            "We initially overscoped, causing a major cut from the project towards the end. I had trouble remaking a roadmap and end vision"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Producer Responsibilities"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Oversaw task management and milestone planning to ensure smooth development flow and on-time deliverables",
+            "Facilitated weekly team meetings, set clear agendas, and coordinated cross-discipline communication",
+            "Monitored team morale and workload, resolving blockers early and promoting a healthy development environment. Using custom made tools that visualized individual workloads",
+            "Acted as the primary point of contact between the design, audio, engineering teams and additionally faculty advisors"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Producer Challenges"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The team was resistant to using ClickUp, so I facilitated a transition to a custom Excel based workflow that was made by another team member. Which better matched the team's preferences, resulting in improved participation and clear task visibility",
+            "Addressed interpersonal conflicts in the early stages of development by mediating discussions, establishing clearer expectations, and promoting transparent communication",
+            "Whenever build or technical problems arose, I ensured quick escalation by coordinating with the appropriate faculty advisors, minimizing downtime nad keeping development on track",
+            "Some team members found the updated task and bug tracking workflow disrusptive, so I maintained direct oversight of team tasks and bug reporting, ensuring accurate documentation while allowing members to focus on their core work without friction"
+          ]
+        }
+      ]
+    }
   }
 ]
