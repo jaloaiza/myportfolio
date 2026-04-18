@@ -6,7 +6,8 @@
         { "name": "Unity", "level": 3, "icon": "skill-icons:unity-dark" },
         { "name": "Unreal Engine", "level": 3, "icon": "skill-icons:unrealengine" },
         { "name": "Git", "level": 2, "icon": "skill-icons:git" },
-        { "name": "Perforce", "level": 2, "icon": "mdi:source-branch" }
+        { "name": "Perforce", "level": 2, "icon": "mdi:source-branch" },
+        { "name": "Figma", "level": 2, "icon": "skill-icons:figma-dark" }
       ]
     },
     {
@@ -16,6 +17,14 @@
         { "name": "Hack N Plan", "level": 2,"icon": "mdi:sword-cross" },
         { "name": "Excel", "level": 2,"icon": "vscode-icons:file-type-excel" },
         { "name": "Jira", "level": 1, "icon": "mdi:ticket-outline"}
+      ]
+    },
+    {
+      "title": "AI & ML Tools",
+      "skills": [
+        { "name": "Google Colab", "level": 1, "icon": "vscode-icons:file-type-jupyter" },
+        { "name": "HuggingFace", "level": 1, "icon": "mdi:robot-happy-outline" },
+        { "name": "OpenRouter", "level": 1, "icon": "mdi:api" }
       ]
     },
     {

@@ -27,7 +27,7 @@ const isSlider = images.length > 1;
     <div class="absolute top-3 right-3 flex gap-2 z-20">
       {platforms.map((p: string) => (
         <div class="p-1.5 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 text-white/80">
-          <Icon name={`mdi:${p}`} class="w-4 h-4" />
+          <Icon name={p.includes(':') ? p : `mdi:${p}`} class="w-4 h-4" />
         </div>
       ))}
     </div>

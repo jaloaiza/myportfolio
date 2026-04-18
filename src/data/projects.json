@@ -189,6 +189,86 @@
     }
   },
   {
+    "title": "Going from Game Jam to Steam",
+    "featured": true,
+    "category": "Work In Progress",
+    "date": "Feb 2026 - Present",
+    "description": "Find out more about taking a game jam project, and transforming it into a Steam publication!",
+    "images": ["GuardDog/HeaderCapsule.png"],
+    "tech": ["Perforce", "Unreal Engine", "CommonUI", "C++", "Blueprints"],
+    "platforms": ["steam", "youtube"],
+    "links": [
+      {"label": "Steam", "url": "https://store.steampowered.com/app/4563940/Guard_Dog_on_Duty/"},
+      {"label": "YouTube", "url": "https://www.youtube.com/watch?v=8xEBURNkyJQ"}
+    ],
+    "details": {
+      "role": "Producer",
+      "tags": ["Production", "UI Programming", "Interdisciplinary Collaboration"],
+      "blocks": [
+        {
+          "type": "text",
+          "body": [
+            "As a **Co-Producer**, I am responsible for guiding Guard Dog on Duty from a game jam level to a fully polished publication.",
+            "I currently help oversee 3 programmers, 3 artists, 4 game designers and 2 sound designers through sprints to help deliver to production."
+          ]
+        },
+        {
+          "type": "media",
+          "src": "https://www.youtube.com/watch?v=8xEBURNkyJQ",
+          "caption": "Guard Dog on Duty — Game Trailer"
+        },
+        {
+          "type": "heading",
+          "text": "Producer Responsibilities"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Negotiated with an IP team to receive publication support and IP rights",
+            "Communicating with the team and facilitating team wide meetings for upcoming sprint planning",
+            "Identified team wide goals and roles",
+            "Helping declare official pipelines and procedures for production"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Producer Challenges"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Difficulty balancing the work of two sound designers",
+            "Coordinated with an IP team who originally held rights, to give our team full publishing rights and ownership",
+            "Facilitating meetings amongst remote work and in person"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Programmer Responsibilities"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Implementing and debugging controller and keyboard support for menus",
+            "Worked alongside another UI designer and programmer to pair program menus",
+            "Refactoring the entire UI system to swap over to CommonUI"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Programmer Challenges"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Due to it being my first time implementing a system I had not used before, I had to research CommonUI and best practices",
+            "Ensuring the UI systems in our game, were built off a strong architecture of RootLayouts and Stacks"
+          ]
+        }
+      ]
+    }
+  },
+  {
     "title": "Gambler's Fallacy",
     "category": "UI Programmer",
     "date": "Sept 2024 - Aug 2025",
@@ -309,6 +389,120 @@
     }
   },
   {
+    "title": "Remembrance",
+    "category": "thatgamejam",
+    "date": "Dec 2025 - Jan 2026",
+    "description": "Remembrance is a product of a 2-week game jam hosted by thatgamecompany. Developed by 5 interdiscipline members, composed of two programmers, two artists and a sound designer.",
+    "images": ["Remembrance/Remembrance_MM.gif"],
+    "tech": ["Perforce", "Unreal Engine 5.6", "Blueprints", "Materials", "UMG"],
+    "platforms": ["simple-icons:itchdotio"],
+    "links": [
+      {"label": "itch.io", "url": "https://jujuloaiza.itch.io/remembrance2"}
+    ],
+    "details": {
+      "role": "UI/UX & Gameplay Programmer",
+      "tags": ["UI/UX", "Design & Art Collaboration", "Post Processing"],
+      "blocks": [
+        {
+          "type": "text",
+          "body": [
+            "I implemented and designed a data driven dialogue system using Unreal Engine's data assets. Which allowed myself and the other members of the team to easily iterate over the narrative. Additionally, it allowed for correct and easy timing for events surrounding the dialogue.",
+            "Additionally, I authored post-process materials leveraging Custom Render Depth and Stencil buffers to apply global desaturation with selective resaturation masks and a modular interactable blueprint outline system."
+          ]
+        },
+        {
+          "type": "media",
+          "src": "Remembrance/Remembrance_Dialogue.gif",
+          "caption": "Data Driven Dialogue System"
+        },
+        {
+          "type": "heading",
+          "text": "Dialogue System"
+        },
+        {
+          "type": "text",
+          "body": [
+            "First, with our game being heavily narrative based. I wanted to make sure that important dialogue could be accidentally skipped. So I had boolean flags that could be easily set that made any line wanted unskippable.",
+            "To give the dialogue feel a bit more alive, I added a typewriter effect, which also helped make sure that players didn't actually skip it, since it added another level of visual security",
+            "When creating the UI, I was tasked by the narrative designer to keep camera blends, and companion behaviors in mind. Due to the dialogue being data driven, it was easy to add in additional flags that could be checked by the other members if they wanted to easily add in a camera blend. Also, the programmer and artist who was in charge of the child character, easily hooked into the dialogue system to add in companion behaviors."
+          ]
+        },
+        {
+          "type": "media",
+          "src": "Remembrance/Remembrance_DialogueData.gif",
+          "caption": "Backend of the Dialogue System"
+        },
+        {
+          "type": "heading",
+          "text": "Driving Dialogue by Data"
+        },
+        {
+          "type": "text",
+          "body": [
+            "This is what the data driven dialogue looked like. I made a structure, 'FDialogueLine', that would resemble a line of dialogue. Which allowed us to control what could happen, such as camera blends, or child color changes, at specific lines in dialogue sequences. ",
+            "Dialogue Sequences were composed of an array of how ever many dialogue lines we wanted.  So we would have either trigger boxes in the level that would call upon these data sequences, or we could call upon them during run time."
+          ]
+        },
+        {
+          "type": "media",
+          "src": "Remembrance/Remembrance_Resaturation.gif",
+          "caption": "Resaturating objects using Custom Stencils"
+        },
+        {
+          "type": "heading",
+          "text": "Post Process Materials"
+        },
+        {
+          "type": "text",
+          "body": [
+            "Since one of our goals for the narrative was to bring back color to your town/memories. It was vital that we could be able to saturate specific areas/objects, while the remaining world is still desaturated.",
+            "I used Unreal's Custom Render Depth with Stencil masks. During runtime I would get all actors within a certain trigger volume and change their stencil values. At first this was jarring due to no lerp effect/transition. So I used a Material Post Collection with a parameter that was used in the material. Then I would use a timeline to lerp this value."
+          ]
+        },
+        {
+          "type": "media",
+          "src": "Remembrance/Remembrance_Interactables.gif",
+          "caption": "Modular Interactable Setup"
+        },
+        {
+          "type": "heading",
+          "text": "Modular Interactables"
+        },
+        {
+          "type": "text",
+          "body": [
+            "We wanted drawing pickups in the game that would trigger saturation and drive narrative events. However, we soon realized that we could do a lot more with a modular interactable blueprint. This allowed us to have pre-requisite objects, which would lead up to the final interactable of that area.",
+            "Additionally, the interactables were event driven, and would call upon camera blends, companion behaviors such as assigning new spline paths."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Programmer Responsibilities"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Developed a designer friendly dialogue system that supported rapid iteration and content authoring",
+            "Ensured core systems were data-driven to improve scalability and ease of extension",
+            "Implemented a post-process desaturation material that selectively resaturated world elements using stencil masking.",
+            "Exposed system interfaces for integration with companion AI behaviors"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Programmer Challenges"
+        },
+        {
+          "type": "list",
+          "items": [
+            "As this was my first time working extensively with Unreal Engine’s material and post processing pipeline, diagnosing and fixing visual issues was time intensive and required rapid experimentation under tight deadlines",
+            "The game jam took place over the Christmas and New Year holiday period, resulting in a compressed schedule and limited availability, which required careful time management and prioritization to meet the submission time frame"
+          ]
+        }
+      ]
+    }
+  },
+  {
     "title": "Chemical Overdrive",
     "category": "UI Programmer | Producer",
     "date": "Sept 2023 - Aug 2024",
@@ -360,15 +554,6 @@
           ]
         },
         {
-          "type": "list",
-          "items": [
-            "Collaborated with a UI designer to develop scalable, designer-friendly interfaces.",
-            "Engineered an inventory management system using an MVC framework.",
-            "Designed and implemented a menu controller with an API supporting a dynamic page/stack system.",
-            "Developed a procedural system for UI art to generate multiple interface assets."
-          ]
-        },
-        {
           "type": "heading",
           "text": "Programmer Responsibilities"
         },
@@ -417,6 +602,103 @@
             "Addressed interpersonal conflicts in the early stages of development by mediating discussions, establishing clearer expectations, and promoting transparent communication",
             "Whenever build or technical problems arose, I ensured quick escalation by coordinating with the appropriate faculty advisors, minimizing downtime nad keeping development on track",
             "Some team members found the updated task and bug tracking workflow disrusptive, so I maintained direct oversight of team tasks and bug reporting, ensuring accurate documentation while allowing members to focus on their core work without friction"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "title": "Action List System",
+    "category": "Solo Project",
+    "date": "Jan 2024 - Feb 2024",
+    "description": "Engineered a modular and scalable Action List System to orchestrate both UI and gameplay events within a poker simulation.",
+    "images": ["ActionSystem/CardSim1.gif"],
+    "tech": ["Unity", "C#", "UI Programming", "Excel"],
+    "details": {
+      "role": "UI Programmer",
+      "tags": ["UI/UX", "Production", "UI Architectures", "UI Art Collaboration"],
+      "blocks": [
+        {
+          "type": "text",
+          "body": [
+            "The system is built on a dictionary-of-dictionaries architecture, allowing actions to be efficiently bucketed into groups based on their type, priority, or execution sequence. This structure made it possible to manage multiple parallel or chained action sets, while maintaining clear separation between gameplay logic and UI flow.",
+            "Each Action List supports advanced features such as easing functions, delays, durations, reference-based chaining, blocking flags, and completion thresholds. Grouping actions within nested dictionaries enabled precise control over synchronized behaviors. For example, allowing multiple animations or logic updates to run in parallel while waiting on a designated blocker action to finish before advancing to the next group.",
+            "This design provided a flexible and maintainable foundation for creating complex, deterministic, and interdependent action sequences. As a result, both the UI and game logic could respond fluidly to player input, timed events, and state transitions, greatly improving overall system coordination and extensibility."
+          ]
+        },
+        {
+          "type": "media",
+          "src": "ActionSystem/CardSim1.gif",
+          "caption": "Automated UI Testing"
+        },
+        {
+          "type": "heading",
+          "text": "UI Automation"
+        },
+        {
+          "type": "text",
+          "body": [
+            "Implemented a comprehensive UI automation and testing framework for an Action List driven poker card game simulation.",
+            "I designed and developed an automated system that rigorously stress-tests both gameplay actions and UI interactions by mimicking real user behavior. The system iterates through all possible interface paths, randomly selecting buttons, menu options, and input values, to simulate how a human player might navigate the game.",
+            "Each automated test pass records every decision, action, and resulting game state through a custom telemetry pipeline. This data is exported to structured CSV logs, which can then be imported into an Excel dashboard I created to visualize action sequences, decision frequencies, and outcome patterns. This workflow made it easy to identify edge cases, validate the reliability of game logic, and ensure UI robustness under unpredictable user input."
+          ]
+        },
+        {
+          "type": "media",
+          "src": "ActionSystem/DebugText.gif",
+          "caption": "Actions being outputted to on screen debug text"
+        },
+        {
+          "type": "heading",
+          "text": "Action List Debug"
+        },
+        {
+          "type": "text",
+          "body": [
+            "Developed a dual-layer in-game debug text overlay system to visualize both gameplay and UI actions in real time.",
+            "I built a live diagnostic tool that displays separate overlays for game actions and UI actions, providing clear insight into how each subsystem is processing its Action List. Each overlay tracks and updates key data points, including action type, group number, execution delay, blocker status, and percentage of completion, allowing for immediate visibility into the flow and timing of active actions. This system greatly accelerated debugging, validation, and iteration by making the internal behavior of the Action System fully transparent during runtime."
+          ]
+        },
+        {
+          "type": "media",
+          "src": "ActionSystem/Excel.png",
+          "caption": "Telemetry in Excel"
+        },
+        {
+          "type": "heading",
+          "text": "Telemetry"
+        },
+        {
+          "type": "text",
+          "body": [
+            "Implemented a robust telemetry system to capture, log, and analyze gameplay events for debugging and system verification.",
+            "I designed a structured event-logging pipeline that records key gameplay actions, state changes, timing data, and outcome values throughout each simulation pass. These events are streamed into organized telemetry logs, enabling detailed post-run analysis and helping identify inconsistencies, edge cases, or unexpected behaviors. The telemetry outputs were formatted for CSV export, making them easy to visualize in external tools such as Excel for deeper data interpretation and debugging."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Programmer Responsibilities"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Created a flexible Action List System to manage UI and game logic events with support for easing, delays, durations, blocking, grouping, and reference actions",
+            "Engineered the system to easily support new action types",
+            "Implemented telemetry to log and monitor gameplay events for debugging and analysis",
+            "Developed systems to automate repetitive gameplay and UI menu sequences",
+            "Added dynamic onscreen debug text to display real-time Action List information aiding rapid iteration and troubleshooting"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Programmer Challenges"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Developing an Action System for the first time proved to be quite challenging with handling how the Action List handled it",
+            "Finding a good system to handle the Action System was also challenging. To ensure grouping and blocking functioned well and was easy to use",
+            "Implementing full automation alongside telemetry for UI testing into a system that was run entirely on Actions was very confusing."
           ]
         }
       ]
