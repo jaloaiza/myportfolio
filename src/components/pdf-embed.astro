@@ -1,0 +1,64 @@
+---
+const { url, title } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const fullUrl = `${base}${url}`;
+---
+
+<div class="pdf-embed rounded-xl overflow-hidden border border-white/10 bg-white" data-pdf-url={fullUrl}>
+  <div class="pdf-pages flex flex-col items-center gap-0"></div>
+  <div class="pdf-loading flex items-center justify-center h-48 text-gray-400 text-sm font-body">
+    Loading resume...
+  </div>
+</div>
+
+<script>
+  import * as pdfjsLib from 'pdfjs-dist';
+
+  pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
+    'pdfjs-dist/build/pdf.worker.min.mjs',
+    import.meta.url
+  ).href;
+
+  async function renderPDF(container: Element) {
+    const url = container.getAttribute('data-pdf-url');
+    if (!url) return;
+
+    const pagesEl = container.querySelector('.pdf-pages') as HTMLElement;
+    const loadingEl = container.querySelector('.pdf-loading') as HTMLElement;
+
+    try {
+      const pdf = await pdfjsLib.getDocument(url).promise;
+
+      loadingEl.remove();
+
+      for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+        const page = await pdf.getPage(pageNum);
+        const containerWidth = container.clientWidth || 700;
+        const viewport = page.getViewport({ scale: 1 });
+        const scale = containerWidth / viewport.width;
+        const scaled = page.getViewport({ scale });
+
+        const canvas = document.createElement('canvas');
+        canvas.width = scaled.width;
+        canvas.height = scaled.height;
+        canvas.style.width = '100%';
+        canvas.style.display = 'block';
+
+        const ctx = canvas.getContext('2d')!;
+        await page.render({ canvasContext: ctx, viewport: scaled }).promise;
+
+        pagesEl.appendChild(canvas);
+      }
+    } catch (e) {
+      loadingEl.textContent = 'Failed to load PDF.';
+      console.error(e);
+    }
+  }
+
+  function initAll() {
+    document.querySelectorAll('.pdf-embed').forEach(renderPDF);
+  }
+
+  initAll();
+  document.addEventListener('astro:after-swap', initAll);
+</script>

@@ -1,5 +1,9 @@
 ---
 import careerData from '../data/career.json';
+import homeData from '../data/home.json';
+import PdfEmbed from './pdf-embed.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const resumes = homeData.resumes ?? [];
 ---
 
 <section id="career" class="py-20 px-4 md:px-0 max-w-6xl mx-auto overflow-hidden">
@@ -90,6 +94,32 @@ import careerData from '../data/career.json';
         ))}
       </div>
     </div>
+
+    {resumes.length > 0 && (
+      <div class="mt-20">
+        <h3 class="text-xl font-heading font-bold text-white mb-6 flex items-center gap-3">
+          <span class="text-accent">/</span> Resumes
+        </h3>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {resumes.map((resume) => (
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center justify-between">
+                <span class="text-white/70 font-body text-sm">{resume.label}</span>
+                <a
+                  href={`${base}${resume.url}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-accent text-xs font-body hover:underline"
+                >
+                  Open ↗
+                </a>
+              </div>
+              <PdfEmbed url={resume.url} title={resume.label} />
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
   </div>
 </section>
 
