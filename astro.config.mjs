@@ -7,8 +7,8 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://jaloaiza.github.io',
-  base: '/myportfolio/',
+  site: 'https://julianloaiza.com',
+  base: '/',
   vite: {
     plugins: [tailwindcss()]
   },
