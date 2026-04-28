@@ -1,5 +1,156 @@
 [
   {
+    "title": "Building User Profiles for Accessibility using Finetuned Models",
+    "featured": true,
+    "category": "Solo Project",
+    "date": "March 2026 - April 2026",
+    "description": "Trained a model to build profiles on users to change narratives in games for ease of access.",
+    "images": ["ProfileChatbot/Debugger.png", "ProfileChatbot/Chats.png"],
+    "tech": ["Google Colab", "Unity", "OpenAI", "OpenRouter", "HuggingFace"],
+    "platforms": [],
+    "link": "#",
+    "details": {
+      "role": "Software Engineer",
+      "tags": ["Prompt Engineering", "UX", "Python"],
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Project Summary"
+        },
+        {
+          "type": "text",
+          "body": [
+            "There are lots of accessibility issues in narratives that haven't been addressed in video games. Issues such as different cultural backgrounds, dyslexia, or other various reason. That may inhibit their ability to fully enjoy the product.",
+            "I designed and developed a chatbot that will build a profile on how the user talks and interacts with it. With this profile, narrative in games can adapt to the player, resulting in a more dynamic and enjoyable experience.",
+            "The profile on the backend would be Json of specificied parameters ranging from 0.0-1.0, which would be living through the chat, incrementing and decaying values based on each user message. Even though the model was single-turn, these living parameters would keep the messages persisting."
+          ]
+        },
+        {
+          "type": "media",
+          "type_override": "iframe",
+          "src": "https://1drv.ms/p/c/12f1c57aa57309f0/IQTaJcjdsvBmR7i3a6QZsCBSAYMWbjJoaAz3QXCFl6_jXDI",
+          "caption": "Presented infront of Industry Professionals"
+        },
+        {
+          "type": "heading",
+          "text": "Project Presentation"
+        },
+        {
+          "type": "text",
+          "body": [
+            "This presentation covers the entirety of the project. Going in depth on the technical aspects such as the finetuning process, implementation, and using the model. In addition, discussing visualizing the training data using Weights & Biases.",
+            "It also gives a clear timeline of the project, discussing my challenges, ethics, and what I hope to achieve in the future for this project."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Dataset Generation"
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "caption": "Generating Datasets using Google Colab",
+          "src": "code/datasetgen.py"
+        },
+        {
+          "type": "text",
+          "body": [
+            "Used Google Colab to generate a dataset size of 5000 training examples, 500 validation examples, and 100 test examples. Then took this dataset, uploaded it to a HuggingFace.",
+            "Using that published HuggingFace dataset, finetuned and quantized a Qwen3-1.7B model. The dataset was trained on various diversity topics such as communication styles, player types, writing patterns and verbosity.",
+            "Originally, the dataset was trained using a small model, which didn't leave a lot of room for various generated examples. So I used GPT5-Nano to generate more data."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Unity Integration"
+        },
+        {
+          "type": "media",
+          "src": "ProfileChatbot/UnityIntegration.png",
+          "caption": "Building the Profiler in Unity"
+        },
+        {
+          "type": "text",
+          "body": [
+            "The first challenge I came across was my laptop hardware specs, so I decided to choose to finetune the Qwen3-1.7B, due to it being a smaller model and being more friendly to low performance devices.",
+            "So once I quantized the model, I integrated it using a LlamaSharp package with a CUDA backend. Due to my model being trained and prompted to only output JSON, I didn't need to prompt engineer it in Unity.",
+            "Since the model only outputted JSON values based on user messages, I needed a way for the project to talk back to the user. My next challenge was integrating GPT5-Nano through OpenRouter and HTTP calls."
+          ]
+        },
+        {
+          "type": "code",
+          "language": "csharp",
+          "caption": "Prompting GPT5-Nano",
+          "src": "code/openaiprompt.cs"
+        },
+        {
+          "type": "text",
+          "body": [
+            "This would take the user message, send it to the finetuned model to build a profile, and then send it to GPT5-Nano with a system prompt. Then that response would be sent back to the UI.",
+            "Below I will go more depth into the messaging pipeline."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Message Pipeline"
+        },
+        {
+          "type": "media",
+          "src": "ProfileChatbot/MessagePipeline.png",
+          "caption": "From User Message to Response"
+        },
+        {
+          "type": "text",
+          "body": [
+            "As stated, previously and in visualized in the image, the high level view is:"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "User sends a message",
+            "Message is sent to the trained model for a profile in Json. The profile is sent to GPT5-Nano with a system prompt",
+            "GPT5-Nano takes that profile with the prompt and sends back a message to the UI",
+            "In the middle of this, the original Json is also sent to the debugger for the profiler"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Visual Profile Debugger"
+        },
+        {
+          "type": "media",
+          "src": "ProfileChatbot/Debugger.png",
+          "caption": "Visualizing the Profile Being Built"
+        },
+        {
+          "type": "text",
+          "body": [
+            "During the development of this chatbot, I was having a hard time finding out if the profile was even being built properly. So I made a visual debugger that you can toggle on and off.",
+            "The profiler had 4 core sections:"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Message count and unmatched messages count",
+            "Dominant per category",
+            "Parameter values",
+            "Last user message and last outputted Json"
+          ]
+        },
+        {
+          "type": "text",
+          "body": [
+            "After a message was sent, once the trained model outputted its profile, the debugger would visually reflect it. The most critical part was seeing all of the parameters and their values of 0.0 to 1.0.",
+            "If a user sends a message that had major typos, which was a profile parameter, it would increment by 0.1. However, if the next message they send would have no typos, the major typos parameter would decay by 0.05, and the clean paramater would increment by 0.1.",
+            "Building this tool allowed me to see how the profiler was analyzing user messages. Allowing for future iterations of the trained model to be more accurate."
+          ]
+        }
+      ]
+    }
+  },
+  {
     "title": "How I Mentored 180+ Students!",
     "featured": true,
     "category": "Work Experience",

@@ -6,6 +6,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const images = project.images ?? [];
 const platforms = project.platforms ?? [];
 const tech = project.tech ?? [];
+const links = project.links ?? (project.link && project.link !== '#' ? [{ url: project.link }] : []);
 const isSlider = images.length > 1;
 ---
 
@@ -25,19 +26,19 @@ const isSlider = images.length > 1;
     </div>
     
     <div class="absolute top-3 right-3 flex gap-2 z-20">
-      {platforms.map((p: string) => (
-        <div class="p-1.5 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 text-white/80">
-          <Icon name={p.includes(':') ? p : `mdi:${p}`} class="w-4 h-4" />
-        </div>
-      ))}
-    </div>
-
-    <div class="absolute top-3 left-3 flex gap-2 z-20">
-      {(project.links ?? (project.link && project.link !== '#' ? [{ url: project.link, icon: 'open-in-new' }] : [])).map((l: any) => (
-        <a href={l.url} target="_blank" data-external-link class="p-1.5 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 text-white/80 hover:text-accent hover:border-accent/40 transition-colors">
-          <Icon name={`mdi:${l.icon ?? 'open-in-new'}`} class="w-4 h-4" />
-        </a>
-      ))}
+      {platforms.map((p: string, i: number) => {
+        const link = links[i];
+        const iconName = p.includes(':') ? p : `mdi:${p}`;
+        return link ? (
+          <a href={link.url} target="_blank" data-external-link class="p-1.5 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 text-white/80 hover:text-accent hover:border-accent/40 transition-colors">
+            <Icon name={iconName} class="w-4 h-4" />
+          </a>
+        ) : (
+          <div class="p-1.5 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 text-white/80">
+            <Icon name={iconName} class="w-4 h-4" />
+          </div>
+        );
+      })}
     </div>
   </div>
 

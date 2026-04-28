@@ -277,6 +277,38 @@
     color: rgba(255, 255, 255, 0.45);
   }
 
+  /* Code block */
+  .block-code {
+    border-radius: 0.6rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .block-code-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.4rem 0.75rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.35);
+    font-family: var(--font-mono, monospace);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .block-code pre {
+    margin: 0;
+    padding: 1rem 1.1rem;
+    overflow-x: auto;
+    background: #0d0d1a !important;
+    font-size: 0.8rem;
+    line-height: 1.65;
+  }
+  .block-code code {
+    font-family: var(--font-mono, 'Courier New', monospace);
+    background: none !important;
+  }
+
   /* Link block */
   .block-link {
     padding-top: 0.5rem;
@@ -305,6 +337,9 @@
 </style>
 
 <script>
+  import hljs from 'highlight.js';
+  import 'highlight.js/styles/atom-one-dark.css';
+
   // Tag color palette — cycles through for each tag
   const TAG_PALETTE = [
     { bg: 'rgba(74,222,128,0.12)',  border: 'rgba(74,222,128,0.3)',  color: '#86efac' },
@@ -412,6 +447,21 @@
           return `<div class="block-media">${inner}${cap}</div>`;
         }
 
+        case 'code': {
+          const lang    = block.language || '';
+          const caption = block.caption || lang;
+          const header  = caption ? `<div class="block-code-header"><span>${esc(caption)}</span></div>` : '';
+
+          if (block.src) {
+            const src = localSrc(block.src);
+            return `<div class="block-code" data-code-src="${esc(src)}" data-code-lang="${esc(lang)}">${header}<pre><code class="${lang ? `language-${esc(lang)}` : ''}"></code></pre></div>`;
+          }
+
+          const raw  = block.code || '';
+          const code = Array.isArray(raw) ? raw.join('\n') : raw;
+          return `<div class="block-code">${header}<pre><code class="${lang ? `language-${esc(lang)}` : ''}">${esc(code)}</code></pre></div>`;
+        }
+
         default:
           return '';
       }
@@ -459,7 +509,28 @@
         html += `<div class="block-tags">${tech.map((t: string) => `<span class="block-tech-tag">${esc(t)}</span>`).join('')}</div>`;
       }
 
-      if (contentEl) contentEl.innerHTML = html;
+      if (contentEl) {
+        contentEl.innerHTML = html;
+
+        // Highlight inline code blocks
+        contentEl.querySelectorAll<HTMLElement>('pre code:not([data-fetched])').forEach(el => {
+          if (el.textContent) hljs.highlightElement(el);
+        });
+
+        // Fetch external code files
+        contentEl.querySelectorAll<HTMLElement>('[data-code-src]').forEach(async wrapper => {
+          const src  = wrapper.dataset.codeSrc!;
+          const code = wrapper.querySelector('code')!;
+          try {
+            const res  = await fetch(src);
+            const text = await res.text();
+            code.textContent = text;
+            hljs.highlightElement(code);
+          } catch {
+            code.textContent = `Could not load: ${src}`;
+          }
+        });
+      }
     }
 
     // ── Open / Close ──────────────────────────────────────
